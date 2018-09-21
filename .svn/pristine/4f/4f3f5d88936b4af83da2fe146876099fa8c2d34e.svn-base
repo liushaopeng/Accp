@@ -1,0 +1,132 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/com/libs.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
+<html lang="en"> 
+<%@include file="/com/js_css.jsp" %>  
+
+<head>  
+<link rel="stylesheet" type="text/css" href="${ctx}/iphone/css/style.css">
+<script type="text/javascript" src="${ctx}/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<style type="text/css">
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+body{
+ overflow: hidden;
+} 
+.iphone {
+  box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #999, 0 0 30px 0px rgba(0, 0, 0, 0.7);
+  border: 5px solid #d9dbdc;
+  background: #f8f8f8;
+  padding: 15px;
+  width:415px;
+  border-radius: 20px;  
+  top:-80px;
+  position: relative; 
+   -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+}
+ 
+.iphone-screen {
+  background: #eee;
+  border: 1px solid #fff;
+  height: 667px; 
+  width:375px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  border-radius: 3px;
+  overflow: hidden;
+ 
+} 
+.childdiv{
+width: 100px;
+height: 100px;
+background-color: red;
+}
+</style>
+</head> 
+<body> 
+<section> 
+  <%@include file="/com/header1.jsp"%> 
+<div class="mainpanel" style="margin-left: 28%;min-height:600px">
+	<%@include file="/com/headerbar1.jsp"%>
+	<div class="contentpanel">
+	<div class="row" id="hswe" style="width:50%;float: left;">
+	 	<div class="iphone"> 
+		    <div class="iphone-screen">
+		      
+		    </div>
+		    
+		  </div> 
+	</div>
+	<div class="row" id="hswe" style="width: 50%;float: right;"> 
+	 <ul  class="nav nav-tabs nav-justified" id="tabs">
+	  <li id="li_0" class="active"><a href="#tab0" data-toggle="tab"><strong>精灵属性</strong></a></li>
+      	 <li id="li_0" class=""><a href="#tab0" data-toggle="tab"><strong>场景属性</strong></a></li>
+         <li id="li_1"><a href="#tab1" data-toggle="tab"><strong>精灵管理</strong></a></li>
+         <li id="li_2"><a href="#tab2" data-toggle="tab"><strong>场景管理</strong></a></li>
+      </ul>
+       <div class="tab-pane active"id="tab0" >
+            	  
+            <div class="panel panel-default">
+                
+                <div class="panel-body">  
+
+                    <div class="panel panel-default"> 
+                        	<div class="form-group"> 
+                                <div class="col-sm-12 ">
+                                   
+                                  <input type="text" class="form-control" name="keyword" placeholder="Search here...">
+                                  
+                                </div>
+                                
+                            </div>    
+
+                    </div>
+                    <!-- panel -->
+                     
+                   
+                </div><!-- panel-body --> 
+    		</div><!-- panel --> 
+       </div>
+	
+	</div>
+ </div>
+	 
+</div>
+</section> 
+<script type="text/javascript">
+//$( "#draggable3" ).draggable({ containment: ".iphone-screen", scroll: false,stack:"#draggable4"});
+//$( "#draggable4" ).draggable({ containment: ".iphone-screen", scroll: false,stack:"#draggable4"});
+ 
+//$( "#draggable3" ).resizable({
+  //  aspectRatio: getproportion($( "#draggable3" ).css("width"),$( "#draggable3" ).css("height"))
+  //});
+//$( "#draggable4" ).resizable({
+  //  aspectRatio: getproportion($( "#draggable4" ).css("width"),$( "#draggable4" ).css("height"))
+ // });
+ 
+  function  getproportion(v,g){
+	  var w=v.replace("px","");
+	  var h=g.replace("px","");
+	  return parseFloat(w)/parseFloat(h);
+  }
+  function  createElves(v){
+	  var div=$('<div></div>');
+	  div.attr('id',v);      
+	  div.addClass('childdiv');
+	  $(".iphone-screen").append(div); 
+	  div.draggable({ containment: ".iphone-screen", scroll: false,stack:"#"+v});
+	  div.resizable({
+		  //aspectRatio: getproportion(div.css("width"),div.css("height"))
+	  });
+  }
+  createElves("div1");
+  createElves("div2");
+  createElves("div3");
+</script>
+</body>
+</html>
+ 

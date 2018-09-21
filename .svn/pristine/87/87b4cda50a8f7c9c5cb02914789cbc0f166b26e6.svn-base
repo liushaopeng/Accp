@@ -1,0 +1,29 @@
+<%@ page contentType="text/html;charset=UTF-8"%> 
+<%@ include file="/com/libs.jsp"%>
+<div class="headerbar"> 
+    <a class="menutoggle"><i class="fa fa-bars"></i></a>  
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group"> 
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                 
+                <%
+                if(custName==""||custName==null){
+                %> 
+                	管理员
+                <%}else{%>
+                	<%=custName%> 	
+                <%}%>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-usermenu pull-right"> 
+                <li><a href="${ctx}/user/user!passwd.action"><i class="fa fa-cogs"></i>密码修改</a></li>
+                <li><a href="${ctx}/j_spring_security_logout"><i class="glyphicon glyphicon-log-out"></i> 退出后台</a></li>
+              </ul>
+            </div>
+          </li>
+          
+        </ul>
+    </div><!-- header-right --> 
+</div><!-- headerbar -->

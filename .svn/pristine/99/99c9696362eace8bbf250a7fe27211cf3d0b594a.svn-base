@@ -1,0 +1,69 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ include file="/com/libs.jsp"%>
+<%@page import="com.mongodb.DBObject"%>
+<%@page import="com.lsp.sys.security.CustomerUser,com.lsp.pub.util.SpringSecurityUtils,com.lsp.pub.entity.CacheResource
+,com.lsp.pub.entity.FuncInfo,java.util.List" %>
+<%@page import="org.springframework.web.filter.RequestContextFilter"%>
+  
+<%
+    String custName = "";
+    String custid=""; 
+    CustomerUser cust =(CustomerUser)SpringSecurityUtils.getCurrentUser();
+	if(cust!=null){
+	custName=cust.getCustname(); 
+	custid=cust.getCustid(); 
+	} 
+	List<FuncInfo> modules= CacheResource.getGetAllFunc();  
+	  
+
+%>
+<div class="leftpanel" style="width: 28%">
+
+    <div class="logopanel"style="height: 50px;overflow: hidden;line-height: 50px;font-weight:font-weight:bold;;">
+       <h4><span>&nbsp;</span></h4>
+    </div><!-- logopanel -->
+
+    <div class="leftpanelinner">
+
+      <h5 class="sidebartitle"> </h5>
+      
+      <ul  class="nav nav-tabs nav-justified" id="tabs">
+      	 <li id="li_0" class="active"><a href="#tab0" data-toggle="tab"><strong>模板中心</strong></a></li>
+         <li id="li_1"><a href="#tab1" data-toggle="tab"><strong>我的模板</strong></a></li>
+      </ul>
+       <div class="tab-pane active"id="tab0">
+            	  
+            <div class="panel panel-default">
+                
+                <div class="panel-body">  
+
+                    <div class="panel panel-default"> 
+                        	<div class="form-group"> 
+                                <div class="col-sm-12 ">
+                                   
+                                  <input type="text" class="form-control" name="keyword" placeholder="Search here...">
+                                  
+                                </div>
+                                
+                            </div>    
+
+                    </div>
+                    <!-- panel -->
+                     
+                   
+                </div><!-- panel-body --> 
+    		</div><!-- panel --> 
+       </div>
+
+    </div><!-- leftpanelinner -->
+  </div><!-- leftpanel -->
+  <script>
+  $(function(){
+	  var cate_id="${cate_id }";
+		$("#cate_"+cate_id).addClass("active");
+		$("#cate_"+cate_id).parent().css("display","block");
+		
+		$("#cate_"+cate_id.substring(0,2)).addClass("active");
+    });
+</script>
+ 
