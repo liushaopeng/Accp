@@ -2196,9 +2196,9 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateZ = element.rotateZ
-								+ parseInt($('#anima_duration').val());
+								+ parseInt($('#anima_duration').val()*0.1);
 					} else {
-						element.rotateZ++;
+						element.rotateZ = element.rotateZ +0.1;
 					}
 				});
 
@@ -2208,9 +2208,9 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateX = element.rotateX
-								+ parseInt($('#anima_duration').val());
+								+ parseInt($('#anima_duration').val()*0.1);
 					} else {
-						element.rotateX++;
+						element.rotateX = element.rotateX + 0.1;
 					}
 				});
 
@@ -2220,9 +2220,9 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateY = element.rotateY
-								+ parseInt($('#anima_duration').val());
+								+ parseInt($('#anima_duration').val()*0.1);
 					} else {
-						element.rotateY++;
+						element.rotateY = element.rotateY +0.1;
 					}
 				});
 
@@ -2235,9 +2235,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateX < qs) {
 						element.translateX = element.translateX
-								+ parseInt($('#anima_duration').val());
+								+ parseInt($('#anima_duration').val()*0.1);
 					} else if (element.translateX < qs) {
-						element.translateX++;
+						element.translateX = element.translateX +0.1;
 					}
 
 				});
@@ -2250,9 +2250,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateX > qs) {
 						element.translateX = element.translateX
-								- parseInt($('#anima_duration').val());
+								- parseInt($('#anima_duration').val()*0.1);
 					} else if (element.translateX > qs) {
-						element.translateX--;
+						element.translateX = element.translateX -0.1;
 					}
 
 				});
@@ -2265,9 +2265,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateY < qs) {
 						element.translateY = element.translateY
-								+ parseInt($('#anima_duration').val());
+								+ parseInt($('#anima_duration').val()*0.1);
 					} else if (element.translateY < qs) {
-						element.translateY++;
+						element.translateY = element.translateY +0.1;
 					}
 
 				});
@@ -2280,9 +2280,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateY > qs) {
 						element.translateY = element.translateY
-								- parseInt($('#anima_duration').val());
+								- parseInt($('#anima_duration').val()*0.1);
 					} else if (element.translateY > qs) {
-						element.translateY--;
+						element.translateY = element.translateY - 0.1;
 					}
 
 				});
@@ -2295,9 +2295,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateZ < qs) {
 						element.translateZ = element.translateZ
-								+ parseInt($('#anima_duration').val());
+								+ parseInt($('#anima_duration').val()*0.1);
 					} else if (element.translateZ < qs) {
-						element.translateZ++;
+						element.translateZ = element.translateZ +0.1;
 					}
 
 				});
@@ -2310,9 +2310,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateZ > qs) {
 						element.translateZ = element.translateZ
-								- parseInt($('#anima_duration').val());
+								- parseInt($('#anima_duration').val()*0.1);
 					} else if (element.translateZ > qs) {
-						element.translateZ--;
+						element.translateZ = element.translateZ -0.1;
 					}
 
 				});

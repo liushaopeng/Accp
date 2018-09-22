@@ -408,7 +408,7 @@ var ybobj = null;
 					if (g > 0 && element.translateY < qs) {
 						element.translateY = element.translateY + parseInt(t);
 					} else if (element.translateY < qs) {
-						element.translateY++;
+						element.translateY = element.translateY +0.1;
 					}
 
 				});
@@ -421,7 +421,7 @@ var ybobj = null;
 					if (t > 0 && element.translateY > qs) {
 						element.translateY = element.translateY - parseInt(t);
 					} else if (element.translateY > qs) {
-						element.translateY--;
+						element.translateY = element.translateY - 0.1;
 					}
 
 				});
@@ -434,7 +434,7 @@ var ybobj = null;
 					if (t > 0 && element.translateZ < qs) {
 						element.translateZ = element.translateZ + parseInt(t);
 					} else if (element.translateZ < qs) {
-						element.translateZ++;
+						element.translateZ = element.translateZ +0.1;
 					}
 
 				});
@@ -447,7 +447,7 @@ var ybobj = null;
 					if (t > 0 && element.translateZ > qs) {
 						element.translateZ = element.translateZ - parseInt(t);
 					} else if (element.translateZ > qs) {
-						element.translateZ--;
+						element.translateZ = element.translateZ -0.1;
 					}
 
 				});
