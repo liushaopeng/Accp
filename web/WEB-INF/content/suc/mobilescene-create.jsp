@@ -500,7 +500,6 @@ body {
 															<option value="flipOutY">左右翻转</option>
 															<option value="left_right">左右运动</option>
 															<option value="up_down">上下运动</option>
-
 														</select>
 													</div>
 													<div class="col-sm-4"><div class="btn btn-darkblue btn-block" id="anima_yl">预览</div></div>
@@ -1176,8 +1175,7 @@ body {
 			console.log("#elve_" + elveid);
 			$("#elve_" + elveid).attr("url_value", $('#elve_url').val());
 			$("#elve_" + elveid).attr("title", $('#elve_title').val());
-			$("#elve_" + elveid).attr("sort", $('#elve_sort').val());
-			console.log(2222);
+			$("#elve_" + elveid).attr("sort", $('#elve_sort').val()); 
 		}
 		function updateStyle(v) {
 			var left = $(v).css("left");
@@ -1439,7 +1437,7 @@ body {
 					});
 					jQuery('#slider-dh-time').slider({
 						range : "min",
-						max : 20,
+						max : 200,
 						value : 0,
 						slide : function(event, ui) {
 							$("#anima_duration").val(ui.value);
@@ -1796,6 +1794,9 @@ body {
 															.replace("elve_",
 																	""));
 													show_evle();
+												},
+												stop:function(event,ui){
+													$(ui.helper).css("z-index",$(ui.helper).attr('sort'))
 												}
 											});
 											elve.resizable({
@@ -1979,10 +1980,13 @@ body {
 								console.log(anima);
 								if(anima.value!=null){
 									$('#anima_value').val(anima.value);
-								}
-								console.log(anima.value); 
+								}else{
+									$('#anima_value').val('');
+								} 
 								if(anima.duration!=null){
 									$('#anima_duration').val(anima.duration);
+								}else{
+									$('#anima_duration').val(0);
 								} 
 								if(anima.iterate!=null){
 									$('#anima_iterate').val(anima.iterate);
@@ -1992,8 +1996,7 @@ body {
 								}
 								if(anima.type!=null){
 									$('#anima_type').val(anima.type);
-								} 
-								animation();
+								}  
 							}
 							
 							

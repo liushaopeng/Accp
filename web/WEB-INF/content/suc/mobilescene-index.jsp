@@ -260,7 +260,7 @@ function  init() {
 								html+='<a href="'+spritlist[j].url+'"><div'
 							    +' style="position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
 							    +'border-radius:'+spritlist[j].style.radius+';'
-							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto"'
+							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].sort+'"'
 							    +'animo_value="'+spritlist[j].anima.value+'"'
 							    +'animo_time="'+spritlist[j].anima.duration+'"'
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
@@ -272,7 +272,7 @@ function  init() {
 								html+='<div'
 							    +' style="position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
 							    +'border-radius:'+spritlist[j].style.radius+';'
-							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto"'
+							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].sort+'"'
 							    +'animo_value="'+spritlist[j].anima.value+'"'
 							    +'animo_time="'+spritlist[j].anima.duration+'"'
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
@@ -338,6 +338,7 @@ var obj = {};
 var globalID;
 var ybobj = null;
 		function animation(v, g, t) {
+			t=t*0.1;
 			var element = $(v)[0];
 			Transform(element);
 			//旋转
@@ -346,7 +347,7 @@ var ybobj = null;
 					if (t > 0) {
 						element.rotateZ = element.rotateZ + parseInt(t);
 					} else {
-						element.rotateZ++;
+						element.rotateZ = element.rotateZ +0.1;
 					}
 				});
 
@@ -357,7 +358,7 @@ var ybobj = null;
 					if (t > 0) {
 						element.rotateX = element.rotateX + parseInt(t);
 					} else {
-						element.rotateX++;
+						element.rotateX = element.rotateX + 0.1;
 					}
 				});
 
@@ -368,7 +369,7 @@ var ybobj = null;
 					if (t > 0) {
 						element.rotateY = element.rotateY + parseInt(t);
 					} else {
-						element.rotateY++;
+						element.rotateY = element.rotateY +0.1;
 					}
 				});
 
@@ -381,7 +382,7 @@ var ybobj = null;
 					if (t > 0 && element.translateX < qs) {
 						element.translateX = element.translateX + parseInt(t);
 					} else if (element.translateX < qs) {
-						element.translateX++;
+						element.translateX = element.translateX +0.1;
 					}
 
 				});
@@ -394,7 +395,7 @@ var ybobj = null;
 					if (t > 0 && element.translateX > qs) {
 						element.translateX = element.translateX - parseInt(t);
 					} else if (element.translateX > qs) {
-						element.translateX--;
+						element.translateX = element.translateX -0.1;
 					}
 
 				});
@@ -600,7 +601,7 @@ var ybobj = null;
 				title : '${entity.title}', // 分享标题
 				desc : '${entity.summary}', // 分享描述
 				link : window.location.href, // 分享链接
-				imgUrl : '${filehttp}${entity.logo}', // 分享图标
+				imgUrl : '${filehttp}${entity.picurl}', // 分享图标
 				success : function() {
 					check_task();
 				},
