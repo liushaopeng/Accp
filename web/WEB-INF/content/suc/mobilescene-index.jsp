@@ -339,13 +339,15 @@ var globalID;
 var ybobj = null;
 		function animation(v, g, t) {
 			t=t*0.1;
+			console.log(g);
+			console.log(t);
 			var element = $(v)[0];
 			Transform(element);
 			//旋转
 			if (g == "spinner") {
 				tick(function() {
 					if (t > 0) {
-						element.rotateZ = element.rotateZ + parseInt(t);
+						element.rotateZ = element.rotateZ + parseFloat(t);
 					} else {
 						element.rotateZ = element.rotateZ +0.1;
 					}
@@ -356,7 +358,7 @@ var ybobj = null;
 			if (g == "flipOutX") {
 				tick(function() {
 					if (t > 0) {
-						element.rotateX = element.rotateX + parseInt(t);
+						element.rotateX = element.rotateX + parseFloat(t);
 					} else {
 						element.rotateX = element.rotateX + 0.1;
 					}
@@ -367,7 +369,7 @@ var ybobj = null;
 			if (g == "flipOutY") {
 				tick(function() {
 					if (t > 0) {
-						element.rotateY = element.rotateY + parseInt(t);
+						element.rotateY = element.rotateY + parseFloat(t);
 					} else {
 						element.rotateY = element.rotateY +0.1;
 					}
@@ -380,7 +382,7 @@ var ybobj = null;
 				element.translateX = -300;
 				tick(function() {
 					if (t > 0 && element.translateX < qs) {
-						element.translateX = element.translateX + parseInt(t);
+						element.translateX = element.translateX + parseFloat(t);
 					} else if (element.translateX < qs) {
 						element.translateX = element.translateX +0.1;
 					}
@@ -393,7 +395,7 @@ var ybobj = null;
 				element.translateX = 300;
 				tick(function() {
 					if (t > 0 && element.translateX > qs) {
-						element.translateX = element.translateX - parseInt(t);
+						element.translateX = element.translateX - parseFloat(t);
 					} else if (element.translateX > qs) {
 						element.translateX = element.translateX -0.1;
 					}
@@ -406,7 +408,7 @@ var ybobj = null;
 				element.translateY = -600;
 				tick(function() {
 					if (g > 0 && element.translateY < qs) {
-						element.translateY = element.translateY + parseInt(t);
+						element.translateY = element.translateY + parseFloat(t);
 					} else if (element.translateY < qs) {
 						element.translateY = element.translateY +0.1;
 					}
@@ -419,7 +421,7 @@ var ybobj = null;
 				element.translateY = 600;
 				tick(function() {
 					if (t > 0 && element.translateY > qs) {
-						element.translateY = element.translateY - parseInt(t);
+						element.translateY = element.translateY - parseFloat(t);
 					} else if (element.translateY > qs) {
 						element.translateY = element.translateY - 0.1;
 					}
@@ -432,7 +434,7 @@ var ybobj = null;
 				element.translateZ = -300;
 				tick(function() {
 					if (t > 0 && element.translateZ < qs) {
-						element.translateZ = element.translateZ + parseInt(t);
+						element.translateZ = element.translateZ + parseFloat(t);
 					} else if (element.translateZ < qs) {
 						element.translateZ = element.translateZ +0.1;
 					}
@@ -445,7 +447,7 @@ var ybobj = null;
 				element.translateZ = 300;
 				tick(function() {
 					if (t > 0 && element.translateZ > qs) {
-						element.translateZ = element.translateZ - parseInt(t);
+						element.translateZ = element.translateZ - parseFloat(t);
 					} else if (element.translateZ > qs) {
 						element.translateZ = element.translateZ -0.1;
 					}

@@ -721,7 +721,7 @@ body {
 														style="text-align: center;">上传</div>
 													<div
 														style="position: absolute; width: 60px; height: 20px; top: 0px; opacity: 0">
-														<input type="file" class="share_content"
+														<input type="file" class="sharepicurl"
 															style="width: 60px; height: 20px" />
 													</div>
 												</div>
@@ -2196,7 +2196,7 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateZ = element.rotateZ
-								+ parseInt($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val()*0.1);
 					} else {
 						element.rotateZ = element.rotateZ +0.1;
 					}
@@ -2208,7 +2208,7 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateX = element.rotateX
-								+ parseInt($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val()*0.1);
 					} else {
 						element.rotateX = element.rotateX + 0.1;
 					}
@@ -2220,7 +2220,7 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateY = element.rotateY
-								+ parseInt($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val()*0.1);
 					} else {
 						element.rotateY = element.rotateY +0.1;
 					}
@@ -2235,7 +2235,7 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateX < qs) {
 						element.translateX = element.translateX
-								+ parseInt($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val()*0.1);
 					} else if (element.translateX < qs) {
 						element.translateX = element.translateX +0.1;
 					}
@@ -2250,7 +2250,7 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateX > qs) {
 						element.translateX = element.translateX
-								- parseInt($('#anima_duration').val()*0.1);
+								- parseFloat($('#anima_duration').val()*0.1);
 					} else if (element.translateX > qs) {
 						element.translateX = element.translateX -0.1;
 					}
@@ -2265,7 +2265,7 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateY < qs) {
 						element.translateY = element.translateY
-								+ parseInt($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val()*0.1);
 					} else if (element.translateY < qs) {
 						element.translateY = element.translateY +0.1;
 					}
@@ -2280,7 +2280,7 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateY > qs) {
 						element.translateY = element.translateY
-								- parseInt($('#anima_duration').val()*0.1);
+								- parseFloat($('#anima_duration').val()*0.1);
 					} else if (element.translateY > qs) {
 						element.translateY = element.translateY - 0.1;
 					}
@@ -2295,7 +2295,7 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateZ < qs) {
 						element.translateZ = element.translateZ
-								+ parseInt($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val()*0.1);
 					} else if (element.translateZ < qs) {
 						element.translateZ = element.translateZ +0.1;
 					}
@@ -2310,7 +2310,7 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateZ > qs) {
 						element.translateZ = element.translateZ
-								- parseInt($('#anima_duration').val()*0.1);
+								- parseFloat($('#anima_duration').val()*0.1);
 					} else if (element.translateZ > qs) {
 						element.translateZ = element.translateZ -0.1;
 					}
@@ -2722,10 +2722,14 @@ body {
 		fileInput("elvepicurl", "11", "elve_picurl", "1", function(e) {
 			elve_picurl_change();
 		});
+		fileInput("sharepicurl", "11", "share_picurl", "1", function(e) {
+
+		}); 
 
 		fileInput("slide_picurl", "11", "slide_picurl", "1", function(e) {
 
 		});
+		
 	</script>
 
 	<script type="text/javascript">
