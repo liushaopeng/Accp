@@ -793,6 +793,7 @@ body {
 											<tr>
 												<th>序号</th>
 												<th>名称</th>
+												<th>预览</th>
 												<th>操作</th>
 
 											</tr>
@@ -1569,7 +1570,12 @@ body {
 													+ list[v]._id
 													+ '">'
 													+ list[v].title
-													+ '</td>'
+													+ '</td>' 
+													+ '<td onclick="layer_click(this)" layerid="'
+													+ list[v]._id 
+													+ '"><img src="${filehttp}/'
+													+ list[v].picurl+'"'
+													+ 'height="35px"  /></td>'
 													+ '<td class="table-action"><div class="btn-group1 position-r"><a data-toggle="dropdown" class="dropdown-toggle">'
 													+ '<i class="fa fa-cog"></i></a>'
 													+ '<ul role="menu" class="dropdown-menu pull-right">' 

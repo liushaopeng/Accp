@@ -46,12 +46,95 @@
 	  		<% 
 	  		if(module2.getUrl().replace("**","").contains("?")){
 	  		%>
-	  		 <li id="cate_<%=module2.get_id().toString() %>"><a href="${ctx}<%=module2.getUrl().replace("**","") %>&cate_id=<%=module2.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module2.getName()%></a></li>
+	  		 <li id="cate_<%=module2.get_id().toString() %>"><a href="${ctx}<%=module2.getUrl().replace("**","") %>&cate_id=<%=module2.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module2.getName()%></a>
+	  		  <ul class="children">
+	  		    <%
+      		   for (int k=0;k<module.getTfunc().size();k++){
+			   	FuncInfo module3 = (FuncInfo)module2.getTfunc().get(k);	
+				
+	  		   %>
+	  		   <security:authorize ifAllGranted="<%=module3.getAuthName() %>">
+	  		   
+	  		   <li id="cate_<%=module3.get_id().toString() %>"><a href="${ctx}<%=module3.getUrl().replace("**","") %>&cate_id=<%=module3.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module3.getName()%></a>
+	  		   
+	  		     <ul class="children">
+	  		     
+	  		       <%
+      		       for (int l=0;l<module3.getTfunc().size();l++){
+			      	FuncInfo module4 = (FuncInfo)module3.getTfunc().get(l);	
+				
+	  		       %>
+	  		       
+	  		       <security:authorize ifAllGranted="<%=module4.getAuthName() %>"> 
+	  		           <li id="cate_<%=module4.get_id().toString() %>"><a href="${ctx}<%=module4.getUrl().replace("**","") %>&cate_id=<%=module4.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module4.getName()%></a></li>
+	  		       </security:authorize>
+	  		       
+	  		        <% 
+				   } 
+			       %> 
+	  		  
+	  		   
+	  		     </ul>
+	  		   
+	  		   </li>
+	  		   
+	  		   </security:authorize>
+	  		
+	  		   <% 
+				} 
+			  %> 
+	  		  
+	  		  </ul>
+	  		 
+	  		 
+	  		 </li>
 	  		
 	  		<% 
 	  		}else{
 	  		%>
-	  		 <li id="cate_<%=module2.get_id().toString() %>"><a href="${ctx}<%=module2.getUrl().replace("**","") %>?cate_id=<%=module2.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module2.getName()%></a></li>
+	  		 <li id="cate_<%=module2.get_id().toString() %>"><a href="${ctx}<%=module2.getUrl().replace("**","") %>?cate_id=<%=module2.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module2.getName()%></a>
+	  		 
+	  		 
+	  		 <ul class="children">
+	  		    <%
+      		   for (int k=0;k<module.getTfunc().size();k++){
+			   	FuncInfo module3 = (FuncInfo)module2.getTfunc().get(k);	
+				
+	  		   %>
+	  		   <security:authorize ifAllGranted="<%=module3.getAuthName() %>">
+	  		   
+	  		   <li id="cate_<%=module3.get_id().toString() %>"><a href="${ctx}<%=module3.getUrl().replace("**","") %>&cate_id=<%=module3.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module3.getName()%></a>
+	  		   
+	  		     <ul class="children">
+	  		     
+	  		       <%
+      		       for (int l=0;l<module3.getTfunc().size();l++){
+			      	FuncInfo module4 = (FuncInfo)module3.getTfunc().get(l);	
+				
+	  		       %>
+	  		       
+	  		       <security:authorize ifAllGranted="<%=module4.getAuthName() %>"> 
+	  		           <li id="cate_<%=module4.get_id().toString() %>"><a href="${ctx}<%=module4.getUrl().replace("**","") %>&cate_id=<%=module4.get_id().toString() %>"><i class="fa fa-caret-right"style="color: #666"></i> <%=module4.getName()%></a></li>
+	  		       </security:authorize>
+	  		       
+	  		        <% 
+				   } 
+			       %> 
+	  		  
+	  		   
+	  		     </ul>
+	  		   
+	  		   </li>
+	  		   
+	  		   </security:authorize>
+	  		
+	  		   <% 
+				} 
+			  %> 
+	  		  
+	  		  </ul>
+	  		 
+	  		 </li>
 	  		
 	  		<% 
 	  		
