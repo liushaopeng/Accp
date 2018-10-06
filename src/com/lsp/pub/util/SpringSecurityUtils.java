@@ -1,8 +1,11 @@
 package com.lsp.pub.util;
 
+import com.lsp.pub.entity.FuncInfo;
 import com.lsp.sys.security.CustomerUser;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.Authentication;
+import org.springframework.security.GrantedAuthority;
+import org.springframework.security.GrantedAuthorityImpl;
 import org.springframework.security.context.SecurityContextHolder;
 import org.springframework.security.providers.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.security.ui.WebAuthenticationDetails;
@@ -27,8 +30,7 @@ public class SpringSecurityUtils
   {
     Object principal = null;
     try {
-      principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-       
+      principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
       if ((principal == null) || ("roleAnonymous".equals(principal)))
         return null;
     }
@@ -46,4 +48,14 @@ public class SpringSecurityUtils
 
     SecurityContextHolder.getContext().setAuthentication(authentication);
   }
+  public static boolean  check(String func){
+	  GrantedAuthority[] st=SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+      for (GrantedAuthority grantedAuthority : st) {
+    	   if(func.equals(grantedAuthority)){
+    		   return true;
+    	   }
+	}
+	return false;
+  }
+  
 }

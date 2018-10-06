@@ -851,7 +851,7 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="slide_top" class="form-control"
+														<input type="text" id="slide_top" value="${slidestyle.top}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -862,7 +862,7 @@ body {
 													<div class="col-sm-5">
 
 														<input type="text" id="slide_left" class="form-control"
-															placeholder="请输入" />
+															placeholder="请输入" value="${slidestyle.left}" />
 													</div>
 
 												</div>
@@ -871,7 +871,7 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="slide_width" class="form-control"
+														<input type="text" id="slide_width" value="${slidestyle.width}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -881,7 +881,7 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="slide_height" class="form-control"
+														<input type="text" id="slide_height" value="${slidestyle.height}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -941,7 +941,7 @@ body {
 													<div class="col-sm-5">
 
 														<input type="text" id="roll_top" class="form-control"
-															placeholder="请输入" />
+															placeholder="请输入" value="${rollstyle.top}"  />
 													</div>
 
 												</div>
@@ -950,8 +950,28 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_left" class="form-control"
+														<input type="text" id="roll_left" value="${rollstyle.left}"  class="form-control"
 															placeholder="请输入" />
+													</div>
+
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">字体颜色: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-5">
+
+														<input type="text" id="roll_color" class="form-control color"
+															placeholder="请输入" readonly="readonly" value="${rollstyle.color}"  />
+													</div>
+
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">背景色: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-5">
+
+														<input type="text" id="roll_bj_color" value="${rollstyle.backgroundcolor}" class="form-control color"
+															placeholder="请输入" readonly="readonly" />
 													</div>
 
 												</div>
@@ -960,7 +980,7 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_width" class="form-control"
+														<input type="text" id="roll_width" value="${rollstyle.width}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -970,7 +990,7 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_height" class="form-control"
+														<input type="text" id="roll_height" value="${rollstyle.height}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -2106,18 +2126,20 @@ body {
 				layer.texts = texts;
 				//组装幻灯片数据
 				var slide = {};
-				slide.width = $('#slide_width').css("width");
-				slide.height = $('#slide_height').css("height");
-				slide.left = $('#slide_left').css("left");
-				slide.top = $('#slide_top').css("top");
+				slide.width = $('#slide_width').val();
+				slide.height = $('#slide_height').val();
+				slide.left = $('#slide_left').val();
+				slide.top = $('#slide_top').val();
 
 				layer.slide = slide;
 				//组装滚动字幕数据
 				var roll = {};
-				roll.width = $('#roll_width').css("width");
-				roll.height = $('#roll_height').css("height");
-				roll.left = $('#roll_left').css("left");
-				roll.top = $('#roll_top').css("top");
+				roll.width = $('#roll_width').val();
+				roll.height = $('#roll_height').val();
+				roll.left = $('#roll_left').val();
+				roll.top = $('#roll_top').val(); 
+				roll.bjcolor = $('#roll_bj_color').val(); 
+				roll.color = $('#roll_color').val(); 
 				layer.roll = roll;
 
 				data.layer = JSON.stringify(layer);
@@ -3093,6 +3115,8 @@ body {
 			roll.height = $('#roll_height').val();
 			roll.left = $('#roll_left').val();
 			roll.top = $('#roll_top').val();
+			roll.color = $('#roll_color').val();
+			roll.backgroundcolor = $('#roll_bj_color').val();
 			submitData.roll = JSON.stringify(roll);
 			;
 			$.post('${ctx}/suc/mobilescene!saveSlideRoll.action', submitData,

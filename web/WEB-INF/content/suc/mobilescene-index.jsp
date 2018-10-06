@@ -202,7 +202,7 @@ winWidth = document.documentElement.clientWidth;
 	</c:if>
 	<c:if test="${not empty  roll}">
 		<div class="overflow-hidden"
-			style="position: absolute;margin-top:${rollstyle.margintop};height:37px;line-height:37px;z-index: 999;background-color: white;">
+			style="position: absolute;margin-top:${rollstyle.margintop};height:37px;line-height:37px;z-index: 999;background-color:${rollstyle.backgroundcolor}">
 			<%@ include file="/com/roll.jsp"%>
 
 		</div>

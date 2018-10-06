@@ -6,7 +6,7 @@
 .xMarquee{width:100%; margin:0px auto; overflow:hidden;}
 .xMarquee ol{list-style-type:none; margin:0px; padding:0px; font-size:14px; width:100000%;}
 .xMarquee ol li{float:left;}
-.xMarquee ol li a{ color:#000; text-decoration:none; line-height:25px;}
+.xMarquee ol li a{ color:${rollstyle.color}; text-decoration:none; line-height:25px;}
 .xMarquee ol li a:hover{ text-decoration:underline;}
 </style>
 <div class="xMarquee" id="x1">
