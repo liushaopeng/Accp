@@ -851,7 +851,7 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="slide_top" value="${slidestyle.top}" class="form-control"
+														<input type="text" id="slide_top" value="${slidestyle.margintop}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -862,7 +862,7 @@ body {
 													<div class="col-sm-5">
 
 														<input type="text" id="slide_left" class="form-control"
-															placeholder="请输入" value="${slidestyle.left}" />
+															placeholder="请输入" value="${slidestyle.marginleft}" />
 													</div>
 
 												</div>
@@ -941,7 +941,7 @@ body {
 													<div class="col-sm-5">
 
 														<input type="text" id="roll_top" class="form-control"
-															placeholder="请输入" value="${rollstyle.top}"  />
+															placeholder="请输入" value="${rollstyle.margintop}"  />
 													</div>
 
 												</div>
@@ -950,7 +950,7 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_left" value="${rollstyle.left}"  class="form-control"
+														<input type="text" id="roll_left" value="${rollstyle.marginleft}"  class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -3068,9 +3068,7 @@ body {
 
 				}
 			});
-			$(".iphone-screen").append(slide);
-			$('#slide_top').val($(slide).css('top'));
-			$('#slide_left').val($(slide).css('left'));
+			$(".iphone-screen").append(slide); 
 
 			//组装滚动字幕
 			var roll = $('<div class="div_roll">拖动设置滚动字幕位置</div>');
@@ -3093,9 +3091,7 @@ body {
 
 				}
 			});
-			$(".iphone-screen").append(roll);
-			$('#roll_top').val($(roll).css('top'));
-			$('#roll_left').val($(roll).css('left'));
+			$(".iphone-screen").append(roll); 
 
 		}
 		//保存幻灯片，滚动样式
@@ -3127,8 +3123,7 @@ body {
 					}, "json")
 
 		}
-		function preview() {
-			save_slide_roll();
+		function preview() { 
 			saveLayer();
 			qrcode('http://www.wbaishui.com/Acc_Manage/suc/mobilescene!index.action?custid=${entity.custid}&msid=${msid}');
 		}
