@@ -249,7 +249,7 @@ function  init() {
 							var top=parseFloat(spritlist[j].style.margintop.replace("px",""))*(winHeight/667);
 							var width=parseFloat(spritlist[j].style.width.replace("px",""))*(winWidth/375);
 							var height=parseFloat(spritlist[j].style.height.replace("px",""))*(winHeight/667);
-							if((375/667)<(winWidth/winHeight)){
+							if((375/667)<(winWidth/winHeight)){ 
 								//按比例纠正宽度
 								width=height*(parseFloat(spritlist[j].style.width.replace("px",""))/parseFloat(spritlist[j].style.height.replace("px","")));
 							}else{
@@ -260,7 +260,7 @@ function  init() {
 								html+='<a href="'+spritlist[j].url+'"><div'
 							    +' style="position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
 							    +'border-radius:'+spritlist[j].style.radius+';'
-							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].sort+'"'
+							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].style.z_index+'"'
 							    +'animo_value="'+spritlist[j].anima.value+'"'
 							    +'animo_time="'+spritlist[j].anima.duration+'"'
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
@@ -272,7 +272,7 @@ function  init() {
 								html+='<div'
 							    +' style="position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
 							    +'border-radius:'+spritlist[j].style.radius+';'
-							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].sort+'"'
+							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].style.z_index+'"'
 							    +'animo_value="'+spritlist[j].anima.value+'"'
 							    +'animo_time="'+spritlist[j].anima.duration+'"'
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'

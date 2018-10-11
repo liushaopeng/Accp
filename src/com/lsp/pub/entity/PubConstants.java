@@ -33,6 +33,7 @@ public class PubConstants
   public static String SUC_SLIDE="suc_slide";//幻灯片
   public static String SUC_IMAGE="suc_image";//图片
   public static String SUC_TEXT="suc_text";//文本
+  public static String SUC_CURTAIN="suc_curtain";//幕布
   
   
    

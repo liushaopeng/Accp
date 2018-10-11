@@ -17,7 +17,8 @@
 <script type="text/javascript" src="${ctx}/transformjs/asset/to.js"></script>
 <script type="text/javascript"
 	src="${ctx}/transformjs/asset/alloy_flow.js"></script>
-<script type="text/javascript" src="${ctx}/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="${ctx}/ckeditor/ckeditor.js"></script> 
+<script type="text/javascript" src="${ctx}/css_js/Tdrag/js/Tdrag.js"></script> 
 <style type="text/css">
 *, *:after, *:before {
 	box-sizing: border-box;
@@ -120,6 +121,7 @@ body {
 </script>
 </head>
 <body>
+
 	<section>
 		<%@include file="/com/header1.jsp"%>
 		<div class="mainpanel" style="margin-left: 28%; min-height: 600px">
@@ -131,6 +133,7 @@ body {
 
 					</div>
 				</div>
+	            <input type="button" class="disable" value="禁止/启用拖拽">
 				<div class="row" id="hswe" style="width: 50%; float: right;">
 					<ul class="nav nav-tabs nav-justified" id="tabs"> 
 						<li id="li_2"><a href="#tab2" data-toggle="tab"><strong>精灵管理</strong></a></li>
@@ -1006,6 +1009,51 @@ body {
 
 
 							</div>
+							<div class="tab-pane top-pane" id="tab12">
+								<ul class="nav nav-tabs nav-justified" id="rolltabs">
+									<li id="curtaini_0" class="active" mbdata="0"><a
+										href="#rolltab0" data-toggle="tab"><strong>幕布管理</strong></a></li>
+									<li id="curtaini_1" mbdata="1"><a href="#rolltab1"
+										data-toggle="tab"><strong>幕布设置</strong></a></li>
+								</ul>
+								<div class="tab-content" id="rolltabs-body">
+									<div class="tab-pane active" id="curtaintab0">
+
+										<div class="table-responsive"
+											style="height: 380px; overflow: scroll;">
+											<table class="table table-striped table-success mb30">
+												<thead>
+													<tr>
+														<th>序号</th>
+														<th>名称</th>
+														<th>操作</th>
+
+													</tr>
+												</thead>
+												<tbody id="curtains" style="height: 300px; overflow: scroll;">
+
+												</tbody>
+											</table>
+
+										</div>
+										<span style="margin-bottom: 0px"
+											class="btn btn-darkblue btn-block" id="btnScene"
+											onclick="add_curtain();"><li class="fa fa-plus"></li>&nbsp;&nbsp;添加幕布</span>
+									</div>
+									<div class="tab-pane" id="curtaintab1">
+
+										<div class="panel-body">
+
+											<div class="panel panel-default">
+												 
+											</div>
+											<!-- panel --> 
+										</div>
+									</div>
+								</div>
+
+
+							</div>
 							<div class="tab-pane top-pane" id="tab6">
 								<div class="table-responsive"
 									style="height: 450px; overflow: scroll;">
@@ -1180,6 +1228,90 @@ body {
 
 					</div>
 					<div onclick="save_slide()" class="div-group-10 line-top"
+						style="padding-left: 40px; padding-right: 40px;">
+						<button
+							class="btn btn-primary width-10 maring-a clear weight500 hang40">提
+							交</button>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+		<%--弹出层新--%>
+	<div class="fullscreen bg-hei-8 display-none" id="inszc_curtain"
+		style="height: 100%;">
+		<div style="padding-top: 2%">
+			<div class="pl-10 pr-10 maring-a"
+				style="width: 100%; max-width: 500px; min-width: 320px; margin: 0px auto; right: 0px;">
+				<div class=" bg-bai border-radius3 overflow-hidden">
+					<div class="overflow-hidden line-height40 bg-bai line-bottom">
+						<div class="hang50 pull-left zi-hui-tq">
+							<i class="weight500 size14 pl-10 line-height50">幕布添加</i>
+						</div>
+						<a href="javascript:ps_hide('inszc_curtain')">
+							<div class="hang40 pull-right zi-hui-tq">
+								<i class="weight500 size14 pl-10 pr-10 fa-1dx fa fa-remove"
+									style="line-height: 50px;"></i>
+							</div>
+						</a>
+					</div>
+					<input type="hidden" id="curtain_id" name="_id" />
+					<%--row--%>
+					<div class="pt-15 pl-15 pr-15 overflow-auto" style="height: 490px;">
+
+						<div class="col-sm-6">
+							<div class="mb-20">
+								<label class="control-label">名称：</label> <input type="text"
+									id="curtain_title" name="title" class="form-control"
+									placeholder="请输入" />
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="mb-20">
+								<label class="control-label">链接：</label> <input type="text"
+									id="curtain_url" name="url" class="form-control"
+									placeholder="请输入" />
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="mb-20">
+								<label class="control-label">排序：</label> <input type="text"
+									id="curtain_sort" name="sort" class="form-control"
+									placeholder="请输入" />
+							</div>
+						</div>
+						<div class="col-sm-9">
+							<label class="control-label">图片(375*200)：</label>
+							<div>
+								<div class="col-sm-5">
+									<input class="form-control" id="slide_picurl" />
+								</div>
+								<div class="col-sm-2"
+									style="height: 30px; line-height: 30px; margin-top: 3px">
+									<div class="button  btn-warning-alt "
+										style="text-align: center;">上传</div>
+									<div
+										style="position: absolute; width: 60px; height: 20px; top: 0px; opacity: 0">
+										<input type="file" class="curtain_picurl"
+											style="width: 60px; height: 20px" />
+									</div>
+								</div>
+
+								<div class="col-sm-2"
+									style="height: 30px; line-height: 30px; margin-top: 3px">
+									<div class="button  btn-warning-alt "
+										style="text-align: center;"
+										onclick="init_img('curtain_picurl','insScene')">图库</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div onclick="save_curtain()" class="div-group-10 line-top"
 						style="padding-left: 40px; padding-right: 40px;">
 						<button
 							class="btn btn-primary width-10 maring-a clear weight500 hang40">提
@@ -1662,6 +1794,7 @@ body {
 
 							}, "json")
 		}
+		var tdrag=false;
 		//初始化当前层数据
 		function init_layer(id) {
 			layerid = id;
@@ -1707,6 +1840,8 @@ body {
 
 											if (style == null) {
 												elve.addClass('childdiv');
+												elve.attr('z_index',
+														1);
 											} else {
 												if (style.height != null) {
 													elve.css('height',
@@ -1737,6 +1872,8 @@ body {
 												elve.css('border-radius',
 														style.radius);
 												elve.css('z-index',
+														style.z_index);
+												elve.attr('z_index',
 														style.z_index);
 
 												if (style.backgroundcolor != null) {
@@ -1804,7 +1941,7 @@ body {
 											elve.bind("click", function() {
 												elves_click(this);
 											});
-											elve.draggable({
+											/**elve.draggable({
 												//containment : "#" + 'layer_'
 														//+ obj._id,
 												scroll : false,
@@ -1824,18 +1961,51 @@ body {
 												stop:function(event,ui){
 													$(ui.helper).css("z-index",$(ui.helper).attr('sort'))
 												}
-											});
+											});*/
+											
 											elve.resizable({
 												//aspectRatio: getproportion(div.css("width"),div.css("height"))
 												resize : function(event, ui) {
 													updateStyle(ui.element);
+													
 												},
 												start : function(event, ui) {
+													
+													if(!tdrag){
+														$(".disable").trigger("click");
+														console.log("开始"+tdrag);
+														tdrag=true;
+													} 
 													init_elve($(ui.element)
 															.attr("id")
 															.replace("elve_",
 																	""));
+													
+													//$(ui.element).disable_open();
 												}
+												,stop : function(event, ui) { 
+													
+													if(tdrag){
+														$(".disable").trigger("click");
+														console.log("结束"+tdrag);
+														tdrag=false;
+													}
+													
+													//$(ui.element).disable_open();
+												}
+											});
+											$(elve).Tdrag({
+												cbStart:function(e,v){  
+													init_elve($(e).attr("id").replace("elve_",""));
+													show_evle();
+												},//移动前的回调函数
+											    cbMove:function(e,v){
+											    	updateStyle(e);
+											    },//移动中的回调函数
+											    cbEnd:function(e,v){
+											    	$(e).css("z-index",$(e).attr('z_index'))
+											    }//移动结束时候的回调函数
+											    ,disableInput:".disable"
 											});
 											div.append(elve);
 
@@ -1924,6 +2094,7 @@ body {
 									$("#layer_bgcolor")
 											.val(obj.backgroundcolor);
 									get_elve();
+									initContext();
 
 								} else {
 									alert("创建失败");
@@ -2070,7 +2241,7 @@ body {
 					elvel.box_shadow = $(this).css("box-shadow");
 					elvel.opacity = $(this).css("opacity");
 					elvel.url = $(this).attr("url_value");
-					elvel.z_index = $(this).css("z-index");
+					elvel.z_index = $(this).attr("z_index");
 					//组装精灵动画
 					elvel.anima_value = $(this).attr("anima_value");
 					elvel.anima_duration = $(this).attr("anima_duration");
@@ -2744,6 +2915,7 @@ body {
 		
 	</script>
 	<script type="text/javascript">
+	    //图片上传
 		fileInput("layerpicurl", "11", "layer_picurl", "1", function(e) {
 			picurl_change();
 		});
@@ -2757,11 +2929,15 @@ body {
 		fileInput("slide_picurl", "11", "slide_picurl", "1", function(e) {
 
 		});
+		fileInput("curtain_picurl", "11", "curtain_picurl", "1", function(e) {
+
+		});
 		
 	</script>
 
 	<script type="text/javascript">
 		var editor = CKEDITOR.replace('roll_context');
+		//添加滚动字幕
 		function add_roll() {
 			$('#roll_id').val('');
 			$('#roll_title').val('');
@@ -2769,6 +2945,7 @@ body {
 			$('#roll_sort').val(0);
 			ps_show('inszc_roll');
 		}
+		//添加幻灯片
 		function add_slide() {
 			$('#slide_id').val('');
 			$('#slide_title').val('');
@@ -2776,7 +2953,15 @@ body {
 			$('#slide_sort').val(0);
 			ps_show('inszc_slide');
 		}
-
+		//添加幕布
+		function add_curtain() {
+			$('#curtain_id').val('');
+			$('#curtain_title').val('');
+			$('#curtain_url').val('');
+			$('#curtain_sort').val(0);
+			ps_show('inszc_curtain');
+		}
+        //保存滚动字幕
 		function save_roll() {
 			var submitData = {
 				title : $('#roll_title').val(),
@@ -2796,6 +2981,7 @@ body {
 					}, "json")
 
 		}
+		//保存幻灯片
 		function save_slide() {
 			var submitData = {
 				title : $('#slide_title').val(),
@@ -2814,6 +3000,26 @@ body {
 
 					}, "json")
 		}
+		//保存幕布
+		function save_curtain() {
+			var submitData = {
+				title : $('#curtain_title').val(),
+				sort : $('#curtain_sort').val(),
+				id : $('#curtain_id').val(),
+				url : $('#curtain_url').val(),
+				picurl : $('#curtain_picurl').val(),
+				type : 'scene${msid}'
+			};
+			$.post('${ctx}/suc/mobilescene!save_Curtain.action', submitData,
+					function(json) {
+						if (json.state == 0) {
+							ps_hide('inszc_curtain');
+							getSlide();
+						}
+
+					}, "json")
+		}
+		//保存分享信息
 		function save_share() {
 			var submitData = {
 				title : $('#share_title').val(),
@@ -2830,6 +3036,7 @@ body {
 
 					}, "json")
 		}
+		//保存音乐
 		function save_music() {
 			var submitData = {
 				music_url : $('#music_url').val(),
@@ -2846,7 +3053,7 @@ body {
 
 					}, "json")
 		}
-
+        //修改滚动字幕
 		function upd_roll(id) {
 			var submitData = {
 				_id : id
@@ -2864,6 +3071,7 @@ body {
 
 			ps_show('inszc_roll');
 		}
+		//删除滚动字幕
 		function del_roll(id) {
 			var submitData = {
 				id : id
@@ -2879,6 +3087,7 @@ body {
 					}, "json")
 
 		}
+		//删除幻灯片
 		function del_slide(id) {
 			var submitData = {
 				id : id
@@ -2894,6 +3103,23 @@ body {
 					}, "json")
 
 		}
+		//删除幕布
+		function del_curtain(id) {
+			var submitData = {
+				id : id
+			};
+			$.post('${ctx}/suc/mobilescene!delCurtain.action', submitData,
+					function(json) {
+						if (json.state == 0) {
+							
+						}
+						alert("删除成功！");
+						getCurtain();
+
+					}, "json")
+
+		}
+		//修改幻灯片
 		function upd_slide(id) {
 			var submitData = {
 				_id : id
@@ -2908,6 +3134,22 @@ body {
 			}, "json")
 
 			ps_show('inszc_slide');
+		}
+		//修改幕布
+		function upd_curtain(id) {
+			var submitData = {
+				_id : id
+			};
+			$.post('${ctx}/suc/slide!upd.action', submitData, function(json) {
+				$('#curtain_id').val(json._id);
+				$('#curtain_title').val(json.title);
+				$('#curtain_picurl').val(json.picurl);
+				$('#curtain_url').val(json.url);
+				$('#curtain_sort').val(json.sort);
+
+			}, "json")
+
+			ps_show('inszc_curtain');
 		}
 		//获取滚动字幕
 		function getRoll() {
@@ -2989,6 +3231,47 @@ body {
 								}
 								$('#slides').html('');
 								$('#slides').html(html);
+
+							}, "json")
+		}
+		//获取幕布
+		function getCurtain() {
+			var submitData = {
+				msid : '${msid}'
+			}
+			$
+					.post(
+							'${ctx}/suc/mobilescene!getCurtain.action',
+							submitData,
+							function(json) {
+
+								var html = "";
+								var list = json.list;
+								if (json.state == 0) {
+									for (var v = 0; v < list.length; v++) {
+
+										html += '<tr><td>'
+												+ list[v].sort
+												+ '</td>'
+												+ '<td>'
+												+ list[v].title
+												+ '</td>'
+												+ '<td class="table-action"><div class="btn-group1 position-r"><a data-toggle="dropdown" class="dropdown-toggle">'
+												+ '<i class="fa fa-cog"></i></a>'
+												+ '<ul role="menu" class="dropdown-menu pull-right">'
+												+ '<li><a href="javascript:upd_curtain('
+												+ list[v]._id
+												+ ')">'
+												+ '<i class="fa fa-pencil "></i>&nbsp;&nbsp;&nbsp;&nbsp;修改</a></li>'
+												+ ' <li><a href="javascript:del_curtain('
+												+ list[v]._id
+												+ ');"><i class="fa fa-trash-o "></i>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></li>'
+												+ '</ul></div></td></tr>';
+
+									}
+								}
+								$('#curtains').html('');
+								$('#curtains').html(html);
 
 							}, "json")
 		}
@@ -3123,19 +3406,32 @@ body {
 					}, "json")
 
 		}
+		//预览
 		function preview() { 
 			saveLayer();
 			qrcode('http://www.wbaishui.com/Acc_Manage/suc/mobilescene!index.action?custid=${entity.custid}&msid=${msid}');
 		}
+		//保存
 		function saveData(){
 			save_slide_roll();
 			saveLayer();
+			 jQuery.gritter.add({
+					title:'操作提示',
+					text: '保存数据成功',
+			      class_name: 'growl-success',
+			      image: '${ctx}/css_js/images/screen.png',
+					sticky: false,
+					time: ''
+				 });
+
 		}
+		//保存刷新
 		function saveDataFresh(){
 			save_slide_roll();
 			saveLayer();
 			window.location.href='${ctx}/suc/mobilescene!create.action?id=${entity._id}';
 		}
+		//删除层
 		function  delScene(id){
 			var submitData={
 					id:id,
@@ -3149,6 +3445,7 @@ body {
 						get_layer();
 					}, "json")
 		}
+		//删除
 		function  delSpirit(id){
 			var submitData={
 					id:id,
@@ -3163,10 +3460,104 @@ body {
 						get_elve();
 						init_layer(layerid);
 					}, "json")
-		}
-		
+		} 
+		//加载右键菜单
+		function  initContext(){
+			context.init({preventDoubleContext: false});
+			context.attach('.elves', [{
+	            header: ''
+	        },
+	        {
+	            text: '上移',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url = context.target.id; 
+	                if(parseInt($('#'+url).css('z-index'))<=1000){
+	                	$('#'+url).css('z-index',parseInt($('#'+url).css('z-index'))+1);
+	                	$('#'+url).attr('z_index',$('#'+url).css('z-index'));
+	                }else{
+	                	 //当前精灵为最顶层，其他精灵全部下移;
+	                	  $('.elves').each(function(e){
+	                		  if(parseInt($(this).css('z-index'))>=2){
+	                			  $(this).css('z-index',parseInt($(this).css('z-index'))-1);
+	                			  $(this).attr('z_index',$(this).css('z-index'));
+	                		  } 
+	                	  });
+	                	  $('#'+url).css('z-index',1000);
+	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	                	  
+	                }
+	                
+	            },
+
+	        },{
+	            text: '下移',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url = context.target.id;  
+	                var index=$('#'+url).css('z-index');
+	                if(parseInt(index)>=2){
+	                	 $('#'+url).css('z-index',parseInt(index)-1);
+	                	 $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	                }else{
+	                	  //当前精灵为最底层，其他精灵全部上移;
+	                	  $('.elves').each(function(e){
+	                		  if(parseInt($(this).css('z-index'))<=1000){
+	                			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
+	                			  $(this).attr('z_index',$(this).css('z-index'));
+	                		  }
+	                		 
+	                	  });
+	                	  $('#'+url).css('z-index',1);
+	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	                	  
+	                }
+	               
+	            },
+	            
+	        } ,{
+	            text: '置顶',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url = context.target.id;  
+	              //当前精灵为最顶层，其他精灵全部下移;
+              	  $('.elves').each(function(e){
+              		  if(parseInt($(this).css('z-index'))>=2){
+              			  $(this).css('z-index',parseInt($(this).css('z-index'))-1); 
+              			  $(this).attr('z_index',$(this).css('z-index'));
+              		  } 
+              	  });
+              	  $('#'+url).css('z-index',1000);
+              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	            },
+	            
+	        } ,{
+	            text: '置底',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url = context.target.id; 
+	                //当前精灵为最底层，其他精灵全部上移;
+              	  $('.elves').each(function(e){
+              		  if(parseInt($(this).css('z-index'))<=1000){
+              			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
+              			  $(this).attr('z_index',$(this).css('z-index'));
+              		  }
+              		 
+              	  });
+              	  $('#'+url).css('z-index',1);
+              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	               
+	            },
+	            
+	        } ]);
+		} 
 	</script>
 	<%@include file="/com/img2.jsp"%>
 	<%@include file="/com/preview1.jsp"%>
+	
 </body>
 </html>

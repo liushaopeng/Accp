@@ -29,6 +29,7 @@ import com.lsp.pub.util.SysConfig;
 import com.lsp.pub.util.UniObject;
 import com.lsp.pub.web.TotalAction;
 import com.lsp.suc.entity.AnimationInfo;
+import com.lsp.suc.entity.Curtain;
 import com.lsp.suc.entity.MobileScene;
 import com.lsp.suc.entity.RollInfo;
 import com.lsp.suc.entity.SceneInfo;
@@ -1431,6 +1432,38 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
 	}
 	/**
+	 * 获取滚动字幕
+	 */
+	public void  getCurtain(){
+		SpringSecurityUtils.getCurrentUser().getId();
+		String msid=Struts2Utils.getParameter("msid");
+		Map<String, Object> sub_map = new HashMap<>();
+		sub_map.put("state",1);
+		List<DBObject>list=webService.getRoll(SpringSecurityUtils.getCurrentUser().getId(), "scene" + msid);
+		if(list!=null&&list.size()>0){
+			sub_map.put("state", 0);
+			sub_map.put("list",list);
+		}
+		String json = JSONArray.fromObject(sub_map).toString();
+		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
+	}
+	/**
+	 * 获取滚动字幕
+	 */
+	public void  updCurtain(){
+		SpringSecurityUtils.getCurrentUser().getId();
+		String msid=Struts2Utils.getParameter("msid");
+		Map<String, Object> sub_map = new HashMap<>();
+		sub_map.put("state",1);
+		List<DBObject>list=webService.getRoll(SpringSecurityUtils.getCurrentUser().getId(), "scene" + msid);
+		if(list!=null&&list.size()>0){
+			sub_map.put("state", 0);
+			sub_map.put("list",list);
+		}
+		String json = JSONArray.fromObject(sub_map).toString();
+		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
+	}
+	/**
 	 * 删除滚动
 	 */
 	public void  delRoll(){
@@ -1455,6 +1488,21 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 		sub_map.put("state",1);
 		String id=Struts2Utils.getParameter("id");
 	    int count=baseDao.delete(PubConstants.SUC_SLIDE, Long.parseLong(id));
+	    if(count>0){
+	    	sub_map.put("state", 0);
+	    }
+		String json = JSONArray.fromObject(sub_map).toString();
+		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
+	}
+    /**
+	 * 删除幻灯片
+	 */
+    public void  delCurtain(){
+    	SpringSecurityUtils.getCurrentUser().getId(); ;
+		Map<String, Object> sub_map = new HashMap<>();
+		sub_map.put("state",1);
+		String id=Struts2Utils.getParameter("id");
+	    int count=baseDao.delete(PubConstants.SUC_CURTAIN, Long.parseLong(id));
 	    if(count>0){
 	    	sub_map.put("state", 0);
 	    }
@@ -1525,6 +1573,42 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
     	roll.setPicurl(picurl);
     	roll.setSort(Integer.parseInt(sort));
     	baseDao.insert(PubConstants.SUC_SLIDE, roll);
+    	sub_map.put("state", 0);
+    	String json = JSONArray.fromObject(sub_map).toString();
+		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
+    }
+    
+    /**
+     * 保存幕布
+     */
+    public void  save_Curtain(){
+    	Map<String, Object> sub_map = new HashMap<>();
+		sub_map.put("state",1);
+    	String id=Struts2Utils.getParameter("id");
+    	String type=Struts2Utils.getParameter("type");
+    	String title=Struts2Utils.getParameter("title");
+    	String sort=Struts2Utils.getParameter("sort");
+    	String picurl=Struts2Utils.getParameter("picurl");
+    	String url=Struts2Utils.getParameter("url");
+    	
+    	Curtain roll=new Curtain();
+    	if(StringUtils.isNotEmpty(id)){
+    		DBObject  obj=baseDao.getMessage(PubConstants.SUC_CURTAIN, Long.parseLong(id)); 
+    		if(obj!=null){
+    			roll=(Curtain) UniObject.DBObjectToObject(obj, Curtain.class);
+    			roll.set_id(Long.parseLong(id));
+    		}
+    	}else{
+    		roll.set_id(mongoSequence.currval(PubConstants.SUC_CURTAIN));
+    	}
+    	roll.setTitle(title);
+    	roll.setType(type);
+    	roll.setCreatedate(new Date());
+    	roll.setCustid(SpringSecurityUtils.getCurrentUser().getId());
+    	roll.setUrl(url);
+    	roll.setPicurl(picurl);
+    	roll.setSort(Integer.parseInt(sort));
+    	baseDao.insert(PubConstants.SUC_CURTAIN, roll);
     	sub_map.put("state", 0);
     	String json = JSONArray.fromObject(sub_map).toString();
 		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  

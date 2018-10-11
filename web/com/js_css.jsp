@@ -9,6 +9,9 @@
 <link href="${ctx}/css_js/css/style.default.css" rel="stylesheet"> 
 <link href="${ctx}/css_js/css/jquery.datatables.css" rel="stylesheet"> 
 <link rel="stylesheet" href="${ctx}/css_js/css/dropzone.css" />
+<link href="${ctx}/css_js/css/jquery.gritter.css" rel="stylesheet">
+<link href="${ctx}/css_js/ContextJS/css/context.standalone.css" rel="stylesheet">
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
   <script src="${ctx }/html/${ctx}/css_js/js/html5shiv.js"></script>
@@ -36,6 +39,9 @@
 <script src="${ctx}/css_js/js/raphael-2.1.0.min.js"></script> 
 <script src="${ctx}/css_js/js/dashboard.js"></script>
 <script src="${ctx}/colorpicker/js/jquery.colorpicker.js"></script>
+<script src="${ctx}/css_js/js/jquery.gritter.min.js"></script>
+<script src="${ctx}/css_js/ContextJS/js/context.js"></script>
+
 <script>
     function ps_hide(v) { 
         $('#'+v).modal('hide');
