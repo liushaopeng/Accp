@@ -1011,14 +1011,14 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			 
 		}else{
 			//创建新场景
-			MobileScene ms=new MobileScene();
+			/**MobileScene ms=new MobileScene();
 			ms.set_id(mongoSequence.currval(PubConstants.SUC_MOBLILESCENE));
 			ms.setCustid(SpringSecurityUtils.getCurrentUser().getId());
 			ms.setCreatedate(new Date());
 			ms.setTitle("空白场景");
 			baseDao.insert(PubConstants.SUC_MOBLILESCENE, ms);
 			id=ms.get_id().toString();
-			Struts2Utils.getRequest().setAttribute("msid", ms.get_id());
+			Struts2Utils.getRequest().setAttribute("msid", ms.get_id());*/
 		}
 		//获取幻灯片样式
 		DBObject slidestyle = baseDao.getMessage(PubConstants.SUC_STYLEINFO, custid + "-mbscene-"
@@ -1031,7 +1031,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 		Struts2Utils.getRequest().setAttribute("slidestyle",slidestyle);
 		Struts2Utils.getRequest().setAttribute("rollstyle",rollstyle); 
 		
-		return "create";
+		return "create2";
 	}
 
 	/**
@@ -1842,7 +1842,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "index";
+		return "index4";
 
 	}
     public void  getIndexData(){
