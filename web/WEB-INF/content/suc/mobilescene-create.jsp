@@ -1937,7 +1937,7 @@ body {
 											}
 											
 											
-											var elve_title = $('<div  style="position: absolute;margin-top: 103%;font-size: 16px;width: 100%;text-align: center;color:'+list[i].title_color+'">'+list[i].title+'</div>');
+											var elve_title = $('<div  style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+list[i].title_color+'">'+list[i].title+'</div>');
 											elve.append(elve_title);
 											elve.bind("click", function() {
 												elves_click(this);
@@ -1995,7 +1995,7 @@ body {
 													//$(ui.element).disable_open();
 												}
 											});
-											$(elve).Tdrag({
+											$(elve).Tdrag({ 
 												cbStart:function(e,v){  
 													init_elve($(e).attr("id").replace("elve_",""));
 													show_evle();
@@ -2007,6 +2007,7 @@ body {
 											    	$(e).css("z-index",$(e).attr('z_index'))
 											    }//移动结束时候的回调函数
 											    ,disableInput:".disable"
+											    
 											});
 											div.append(elve);
 

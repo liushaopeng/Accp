@@ -1031,7 +1031,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 		Struts2Utils.getRequest().setAttribute("slidestyle",slidestyle);
 		Struts2Utils.getRequest().setAttribute("rollstyle",rollstyle); 
 		
-		return "create2";
+		return "create";
 	}
 
 	/**
@@ -1842,7 +1842,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "index4";
+		return "index";
 
 	}
     public void  getIndexData(){

@@ -280,7 +280,7 @@ function  init() {
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
 							    +'animo_duration="'+spritlist[j].anima.duration+'"'
 							    +'animo_keep="'+spritlist[j].anima.keep+'" id="'+spritlist[j].anima._id+'"'
-							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;top: 103%;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>'
+							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>'
 							    +'</a>'; 
 							}else{
 								html+='<li'
@@ -292,7 +292,7 @@ function  init() {
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
 							    +'animo_duration="'+spritlist[j].anima.duration+'"'
 							    +'animo_keep="'+spritlist[j].anima.keep+'" id="'+spritlist[j].anima._id+'"'
-							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;top: 103%;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>';
+							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>';
 							}
 							
 						}
