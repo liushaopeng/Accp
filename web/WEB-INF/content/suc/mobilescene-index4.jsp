@@ -21,6 +21,7 @@
 <script src="${ctx}/scene/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="${ctx }/scene/js/jquery.fullPage.js"></script>
 <link href="${ctx}/animo/animate-animo.css" rel="stylesheet" />
+<link href="${ctx}/css_js/css/an.css" rel="stylesheet" />
 <script type="text/javascript" src="${ctx}/animo/animo.js"></script>
 <script type="text/javascript" src="${ctx }/html/js/bbsSwipe.js"></script>
 <script type="text/javascript" src="${ctx }/html/js/swipe.js"></script>
@@ -180,6 +181,53 @@ a {
     height:486px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    position: absolute;
+}
+
+.u-arrow-bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 150;
+    width: 24px;
+    height: 14px;
+    margin-left: -7px;
+    }
+    
+    
+ .pre-wrap-bottom {
+    width: 24px;
+    height: 14px;
+    position: relative;
+    -webkit-animation: start 1.5s infinite ease-in-out;
+    animation: start 1.5s infinite ease-in-out;
+}
+.pre-box1, .pre-box2 {
+    height: 15px;
+    width: 11px;
+    position: absolute;
+    top: -5px;
+    overflow: hidden;
+}
+.pre1, .pre2 {
+    background-color: #fff;
+    width: 14px;
+    height: 5px;
+    border-radius: 2px;
+    position: absolute;
+    box-shadow: 1px -1px 1px #646464;
+    top: 5px;
+}
+.pre1 {
+    transform: rotate(130deg);
+    -webkit-transform: rotate(130deg);
+    left: 1px;
+}
+}
+.pre2 {
+    left: -4.5px;
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
 }
 </style> 
 </head>
@@ -223,6 +271,16 @@ a {
 	</div>
 
 
+    <section class="u-arrow-bottom" style="bottom: 30px;">
+       <div class="pre-wrap-bottom">
+          <div class="pre-box1">
+            <div class="pre1"></div>
+          </div>
+          <div class="pre-box2">
+             <div class="pre2"></div>
+          </div>
+      </div>
+   </section>
 	<div id="progress" class="progress">
 		<div class="progress-rate"></div>
 		<div class="progress-items"></div>
@@ -250,7 +308,7 @@ function  init() {
 					var list=json.list;
 					var html='';
 					for(var i=0;i<list.length;i++){
-						html+='<div style="background-image:url(${filehttp}/'+list[i].picurl+');background-size:100% 100%;background-color:'+list[i].backgroundcolor+';width:100%;height:100%;position: absolute;"><ul class="section edit_area">';
+						html+='<div class="section"  style="background-image:url(${filehttp}/'+list[i].picurl+');background-size:100% 100%;background-color:'+list[i].backgroundcolor+';width:100%;height:100%;"><div><ul class="edit_area">';
 						
 						var spritlist=list[i].spritlist;
 						for(var j=0;j<spritlist.length;j++){
@@ -280,7 +338,7 @@ function  init() {
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
 							    +'animo_duration="'+spritlist[j].anima.duration+'"'
 							    +'animo_keep="'+spritlist[j].anima.keep+'" id="'+spritlist[j].anima._id+'"'
-							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;top: 103%;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>'
+							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>'
 							    +'</a>'; 
 							}else{
 								html+='<li'
@@ -292,17 +350,12 @@ function  init() {
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
 							    +'animo_duration="'+spritlist[j].anima.duration+'"'
 							    +'animo_keep="'+spritlist[j].anima.keep+'" id="'+spritlist[j].anima._id+'"'
-							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;top: 103%;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>';
+							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>';
 							}
 							
 						}
-						html+='</ul><div>';     
-					}
-					
-					
-					
-					
-					
+						html+='</ul></div></div>';     
+					} 
 					$('#fullpage').html(html);
 					change();
 					

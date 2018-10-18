@@ -180,6 +180,7 @@ a {
     height:486px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    position: absolute;
 }
 </style> 
 </head>
@@ -250,7 +251,7 @@ function  init() {
 					var list=json.list;
 					var html='';
 					for(var i=0;i<list.length;i++){
-						html+='<div style="background-image:url(${filehttp}/'+list[i].picurl+');background-size:100% 100%;background-color:'+list[i].backgroundcolor+';width:100%;height:100%;position: absolute;"><ul class="section edit_area">';
+						html+='<div class="section"  style="background-image:url(${filehttp}/'+list[i].picurl+');background-size:100% 100%;background-color:'+list[i].backgroundcolor+';width:100%;height:100%;"><div><ul class="edit_area">';
 						
 						var spritlist=list[i].spritlist;
 						for(var j=0;j<spritlist.length;j++){
@@ -296,13 +297,8 @@ function  init() {
 							}
 							
 						}
-						html+='</ul><div>';     
-					}
-					
-					
-					
-					
-					
+						html+='</ul></div></div>';     
+					} 
 					$('#fullpage').html(html);
 					change();
 					

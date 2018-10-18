@@ -831,6 +831,7 @@ body {
 													<tr>
 														<th>序号</th>
 														<th>名称</th>
+														<th>图片</th>
 														<th>操作</th>
 
 													</tr>
@@ -3217,6 +3218,9 @@ body {
 												+ '<td>'
 												+ list[v].title
 												+ '</td>'
+												+ '<td><img src="${filehttp}'
+												+ list[v].picurl
+												+ '" style="height:25px"/></td>'
 												+ '<td class="table-action"><div class="btn-group1 position-r"><a data-toggle="dropdown" class="dropdown-toggle">'
 												+ '<i class="fa fa-cog"></i></a>'
 												+ '<ul role="menu" class="dropdown-menu pull-right">'

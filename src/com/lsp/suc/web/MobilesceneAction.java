@@ -1842,7 +1842,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "index";
+		return "index4";
 
 	}
     public void  getIndexData(){
