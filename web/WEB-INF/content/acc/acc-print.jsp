@@ -2,7 +2,7 @@
 <%@ include file="/com/libs.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
+<html> 
 	<head>
 		<meta charset="UTF-8">
 		<title>小票</title>
