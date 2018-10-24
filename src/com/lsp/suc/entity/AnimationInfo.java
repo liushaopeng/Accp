@@ -24,6 +24,17 @@ public class AnimationInfo extends ReflectionDBObject{
 	 * 保持 0为开，1为关
 	 */
 	private  String keep;
+	/**
+	 * 延时
+	 */
+	private  String timeDelay;
+	
+	public String getTimeDelay() {
+		return timeDelay;
+	}
+	public void setTimeDelay(String timeDelay) {
+		this.timeDelay = timeDelay;
+	}
 	public String getToUser() {
 		return toUser;
 	}

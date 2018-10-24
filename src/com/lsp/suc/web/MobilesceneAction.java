@@ -998,6 +998,15 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			DBObject db=baseDao.getMessage(PubConstants.SUC_MOBLILESCENE, Long.parseLong(id));
 			if(db!=null){
 				Struts2Utils.getRequest().setAttribute("msid", id);
+				//加载第一个图层
+				HashMap<String,Object>whereMap=new HashMap<>();
+				HashMap<String,Object>sortMap=new HashMap<>();
+				whereMap.put("msid",Long.parseLong(id));
+				sortMap.put("sort", -1);
+				List<DBObject>list=baseDao.getList(PubConstants.SUC_SCENE, whereMap,0,2,sortMap);
+				if(list.size()>0) {
+					Struts2Utils.getRequest().setAttribute("scid",list.get(0).get("_id"));
+				}
 			}else{
 				//创建新场景
 				MobileScene ms=new MobileScene();
@@ -1011,14 +1020,14 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			 
 		}else{
 			//创建新场景
-			/**MobileScene ms=new MobileScene();
+			MobileScene ms=new MobileScene();
 			ms.set_id(mongoSequence.currval(PubConstants.SUC_MOBLILESCENE));
 			ms.setCustid(SpringSecurityUtils.getCurrentUser().getId());
 			ms.setCreatedate(new Date());
 			ms.setTitle("空白场景");
 			baseDao.insert(PubConstants.SUC_MOBLILESCENE, ms);
 			id=ms.get_id().toString();
-			Struts2Utils.getRequest().setAttribute("msid", ms.get_id());*/
+			Struts2Utils.getRequest().setAttribute("msid", ms.get_id());
 		}
 		//获取幻灯片样式
 		DBObject slidestyle = baseDao.getMessage(PubConstants.SUC_STYLEINFO, custid + "-mbscene-"
@@ -1307,10 +1316,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			AnimationInfo  anima=new AnimationInfo();
 			anima.set_id(custid + "-scene-"
 					+ layer.getString("id")+ "-" + elve.getString("id"));
-			anima.setCustid(SpringSecurityUtils.getCurrentUser().getId());
-			System.out.println("********-"+elve.getString("id"));
-			System.out.println(elve.get("anima_value"));
-			System.out.println(elve.get("anima_duration"));
+			anima.setCustid(SpringSecurityUtils.getCurrentUser().getId()); 
 			if(elve.get("anima_value")!=null){
 				anima.setValue(elve.getString("anima_value"));
 			}
@@ -1325,6 +1331,9 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			}
 			if(elve.get("anima_type")!=null){
 				anima.setType(elve.getString("anima_type"));
+			} 
+			if(elve.get("anima_timeDelay")!=null){
+				anima.setTimeDelay(elve.getString("anima_timeDelay"));
 			} 
 			baseDao.insert(PubConstants.SUC_ANIMATIONINFO, anima);
 			
@@ -1842,7 +1851,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "index4";
+		return "index";
 
 	}
     public void  getIndexData(){

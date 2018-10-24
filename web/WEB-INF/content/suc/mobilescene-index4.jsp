@@ -271,7 +271,8 @@ a {
 	</div>
 
 
-    <section class="u-arrow-bottom" style="bottom: 30px;">
+    <section class="u-arrow-bottom" style="bottom: 30px;display: none">
+    
        <div class="pre-wrap-bottom">
           <div class="pre-box1">
             <div class="pre1"></div>
@@ -308,7 +309,7 @@ function  init() {
 					var list=json.list;
 					var html='';
 					for(var i=0;i<list.length;i++){
-						html+='<div class="section"  style="background-image:url(${filehttp}/'+list[i].picurl+');background-size:100% 100%;background-color:'+list[i].backgroundcolor+';width:100%;height:100%;"><div><ul class="edit_area">';
+						html+='<div class="section"  style="background-image:url(${filehttp}/'+list[i].picurl+');background-size:100% 100%;background-color:'+list[i].backgroundcolor+';width:100%;height:100%;"><div><ul class="edit_area" id="index'+i+'">';
 						
 						var spritlist=list[i].spritlist;
 						for(var j=0;j<spritlist.length;j++){
@@ -328,35 +329,45 @@ function  init() {
 								//按比例纠正高度
 								//height=width*(parseFloat(spritlist[j].style.height.replace("px",""))/parseFloat(spritlist[j].style.width.replace("px","")));
 							} 
+							var anima='';
+							anima+=spritlist[j].anima.value+' ';
+							anima+=spritlist[j].anima.duration+'s ';
+							anima+='ease '+spritlist[j].anima.timeDelay+'s ';
+							anima+=spritlist[j].anima.iterate +" normal both running";
 							if(spritlist[j].url!=null){
 								html+='<a href="'+spritlist[j].url+'"><li'
-							    +' style="position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
+							    +' style="animation:'+anima+';position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
 							    +'border-radius:'+spritlist[j].style.radius+';'
 							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].style.z_index+'"'
-							    +'animo_value="'+spritlist[j].anima.value+'"'
+							    +'anima_value="'+spritlist[j].anima.value+'"'
 							    +'animo_time="'+spritlist[j].anima.duration+'"'
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
 							    +'animo_duration="'+spritlist[j].anima.duration+'"'
+							    +'animo_timeDelay="'+spritlist[j].anima.timeDelay+'"'
 							    +'animo_keep="'+spritlist[j].anima.keep+'" id="'+spritlist[j].anima._id+'"'
-							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>'
+							    +'style_margin_top="'+spritlist[j].style.margintop+';" anima="'+anima+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>'
 							    +'</a>'; 
 							}else{
 								html+='<li'
-							    +' style="position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
+							    +' style="animation:'+anima+';position:absolute;left:'+left+'px;top:'+top+'px; background-color:'+spritlist[j].style.backgroundcolor+';width:'+width+'px;height:'+height+'px;'
 							    +'border-radius:'+spritlist[j].style.radius+';'
 							    +'background-image:url(${filehttp}/'+spritlist[j].picurl+'); background-size:100% auto;z-index:'+spritlist[j].style.z_index+'"'
 							    +'animo_value="'+spritlist[j].anima.value+'"'
 							    +'animo_time="'+spritlist[j].anima.duration+'"'
 							    +'animo_iterate="'+spritlist[j].anima.iterate+'"'
 							    +'animo_duration="'+spritlist[j].anima.duration+'"'
+							    +'animo_timeDelay="'+spritlist[j].anima.timeDelay+'"'
 							    +'animo_keep="'+spritlist[j].anima.keep+'" id="'+spritlist[j].anima._id+'"'
-							    +'style_margin_top="'+spritlist[j].style.margintop+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>';
+							    +'style_margin_top="'+spritlist[j].style.margintop+';" anima="'+anima+';"><div style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+spritlist[j].title_color+'">'+spritlist[j].title+'</div></li>';
 							}
 							
 						}
 						html+='</ul></div></div>';     
 					} 
 					$('#fullpage').html(html);
+					if(list.length>1){
+						$('.u-arrow-bottom').show();
+					}
 					change();
 					
 					var pb;
@@ -365,34 +376,18 @@ function  init() {
 							 
 						},
 						leavePage : function(index) {
-						
+							animoc(index);
 							console.log("leave" + index)
 						},
 						beginToPage : function(index) {
-							console.log("to" + index);
+							console.log("to" + index); 
+							animo(index);
 							pb.to(index / (this.length - 1));
-							
-							tickArr.splice(0);
-							To.stopAll();
-							To.List.splice(0); 
-							if (ybobj != null) {
-								ybobj.stop();
-
-							}
-							<c:forEach items="${animalist}" var="list">
-							var id = '${list}';
-							animation('#' + id, $('#' + id).attr('animo_value'), $('#' + id).attr(
-									'animo_duration'));
-							</c:forEach>
+							 
+							 
 						}
 					});
 					pb = new ProgressBar("#progress", fp.length - 1)
-					
-					<c:forEach items="${animalist}" var="list">
-					var id = '${list}';
-					animation('#' + id, $('#' + id).attr('animo_value'), $('#' + id).attr(
-							'animo_duration'));
-					</c:forEach>
 					 
 				} 
 			}, "json")
@@ -410,203 +405,28 @@ function  change(){
     	$('.edit_area').css('margin-top',(document.documentElement.clientHeight-486)/2+'px');
     }
 }
+//重置动画
+function  animo(t){
+	$('#index'+t+' li').each(function(){   
+		var anima=""; 
+		anima+=$(this).attr('animo_value')+" "; 
+		console.log($(this).attr('animo_value')); 
+		anima+=$(this).attr('animo_duration')+'s ';
+		anima+='ease '+$(this).attr('animo_timeDelay')+'s ';
+		anima+=$(this).attr('animo_iterate')+' normal both running'; 
+		$(this).css('animation',anima); 
+	}); 
+	
+}
+//重置动画
+function  animoc(t){ 
+	$('#index'+(t)+' li').each(function(){  
+		$(this).css('animation',''); 
+	});
+	
+}
 </script>
-<script type="text/javascript">
-var obj = {};
-var globalID;
-var ybobj = null;
-		function animation(v, g, t) {
-			t=t*0.1;
-			console.log(g);
-			console.log(t);
-			var element = $(v)[0];
-			Transform(element);
-			//旋转
-			if (g == "spinner") {
-				tick(function() {
-					if (t > 0) {
-						element.rotateZ = element.rotateZ + parseFloat(t);
-					} else {
-						element.rotateZ = element.rotateZ +0.1;
-					}
-				});
-
-			}
-			//上下翻转
-			if (g == "flipOutX") {
-				tick(function() {
-					if (t > 0) {
-						element.rotateX = element.rotateX + parseFloat(t);
-					} else {
-						element.rotateX = element.rotateX + 0.1;
-					}
-				});
-
-			}
-			//左右翻转
-			if (g == "flipOutY") {
-				tick(function() {
-					if (t > 0) {
-						element.rotateY = element.rotateY + parseFloat(t);
-					} else {
-						element.rotateY = element.rotateY +0.1;
-					}
-				});
-
-			}
-			//左飞入
-			if (g == "fadeInLeft") {
-				var qs = element.translateX;
-				element.translateX = -300;
-				tick(function() {
-					if (t > 0 && element.translateX < qs) {
-						element.translateX = element.translateX + parseFloat(t);
-					} else if (element.translateX < qs) {
-						element.translateX = element.translateX +0.1;
-					}
-
-				});
-			}
-			//右飞入
-			if (g == "fadeInRight") {
-				var qs = element.translateX;
-				element.translateX = 300;
-				tick(function() {
-					if (t > 0 && element.translateX > qs) {
-						element.translateX = element.translateX - parseFloat(t);
-					} else if (element.translateX > qs) {
-						element.translateX = element.translateX -0.1;
-					}
-
-				});
-			}
-			//上飞入
-			if (g == "fadeInUp") {
-				var qs = element.translateY;
-				element.translateY = -600;
-				tick(function() {
-					if (g > 0 && element.translateY < qs) {
-						element.translateY = element.translateY + parseFloat(t);
-					} else if (element.translateY < qs) {
-						element.translateY = element.translateY +0.1;
-					}
-
-				});
-			}
-			//下飞入
-			if (g == "fadeInDown") {
-				var qs = element.translateY;
-				element.translateY = 600;
-				tick(function() {
-					if (t > 0 && element.translateY > qs) {
-						element.translateY = element.translateY - parseFloat(t);
-					} else if (element.translateY > qs) {
-						element.translateY = element.translateY - 0.1;
-					}
-
-				});
-			}
-			//放大
-			if (g == "fadeBig") {
-				var qs = element.translateZ;
-				element.translateZ = -300;
-				tick(function() {
-					if (t > 0 && element.translateZ < qs) {
-						element.translateZ = element.translateZ + parseFloat(t);
-					} else if (element.translateZ < qs) {
-						element.translateZ = element.translateZ +0.1;
-					}
-
-				});
-			}
-			//缩小
-			if (g == "fadeSmall") {
-				var qs = element.translateZ;
-				element.translateZ = 300;
-				tick(function() {
-					if (t > 0 && element.translateZ > qs) {
-						element.translateZ = element.translateZ - parseFloat(t);
-					} else if (element.translateZ > qs) {
-						element.translateZ = element.translateZ -0.1;
-					}
-
-				});
-			}
-			//左右摇摆
-			if (g == "swing") {
-				var step = 0.01, xStep = 3, skewStep = 1;
-				Transform(element);
-				element.originY = 100;
-				element.skewX = -20;
-
-				function sineInOut(a) {
-					return 0.5 * (1 - Math.cos(Math.PI * a));
-				}
-				var alloyFlow = new AlloyFlow({
-					workflow : [ {
-						work : function() {
-							To.go(element, "scaleY", .8, 450, sineInOut);
-							To.go(element, "skewX", 20, 900, sineInOut)
-						},
-						start : 0
-					}, {
-						work : function() {
-							To.go(element, "scaleY", 1, 450, sineInOut)
-						},
-						start : 450
-					}, {
-						work : function() {
-							To.go(element, "scaleY", .8, 450, sineInOut);
-							To.go(element, "skewX", -20, 900, sineInOut)
-						},
-						start : 900
-					}, {
-						work : function() {
-							To.go(element, "scaleY", 1, 450, sineInOut);
-						},
-						start : 1350
-					}, {
-						work : function() {
-							this.start();
-						},
-						start : 1800
-					} ]
-				})
-				ybobj = alloyFlow;
-				ybobj.start();
-
-			}
-
-			if (g == "left_right") {
-				var step = 0.02, xStep = 3, skewStep = 1;
-				animateX();
-			}
-			if (g == "up_down") {
-				var step = 0.02, xStep = 3, skewStep = 1;
-				animateY();
-			}
-
-			function animateY() {
-				cancelAnimationFrame(globalID);
-				element.translateY < -300 && (xStep *= -1);
-				element.translateY > 300 && (xStep *= -1);
-				element.translateY += xStep;
-				globalID = requestAnimationFrame(animateY);
-			}
-			function animateX() {
-				cancelAnimationFrame(globalID);
-				element.translateX < -150 && (xStep *= -1);
-				element.translateX > 150 && (xStep *= -1);
-				element.translateX += xStep;
-				globalID = requestAnimationFrame(animateX);
-			}
-
-		}
-		
-	</script>
-	<script>
-		
-	</script>
+  
 		<c:if test="${not empty entity.music_url}">
 		<!--献花button与音乐button-->
 		<div class="position-f cmp640"

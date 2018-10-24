@@ -10,8 +10,7 @@
 	href="${ctx}/iphone/css/style.css">
 <script type="text/javascript"
 	src="${ctx}/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<link href="${ctx}/animo/animate-animo.css" rel="stylesheet" />
-<script type="text/javascript" src="${ctx}/animo/animo.js"></script>
+<link href="${ctx}/css_js/css/an.css" rel="stylesheet" /> 
 <script type="text/javascript" src="${ctx}/transformjs/transform.js"></script>
 <script type="text/javascript" src="${ctx}/transformjs/asset/tick.js"></script>
 <script type="text/javascript" src="${ctx}/transformjs/asset/to.js"></script>
@@ -492,34 +491,71 @@ body {
 														<select class="form-control col-sm-3" id="anima_value"
 															name="anima_value" onchange="animation()">
 															<option value="">请选择</option>
-															<option value="swing">摇摆</option>
-															<option value="fadeBig">放大</option>
-															<option value="fadeSmall">缩小</option>
-															<option value="spinner">旋转</option>
-															<option value="fadeInLeft">左飞入</option>
-															<option value="fadeInRight">右飞入</option>
-															<option value="fadeInUp">上飞入</option>
-															<option value="fadeInDown">下飞入</option>
-															<option value="flipOutX">上下翻转</option>
-															<option value="flipOutY">左右翻转</option>
-															<option value="left_right">左右运动</option>
-															<option value="up_down">上下运动</option>
+															<option value="fadeIn">淡入</option>
+															<option value="fadeInLeft">向右移入</option>
+															<option value="fadeInRight">向左移入</option>
+															<option value="fadeInUp">向上移入</option>
+															<option value="fadeInDown">向下移入</option>
+															<option value="flipInY">翻转进入</option>
+															<option value="bounceInLeft">向右弹入</option>
+															<option value="bounceInRight">向左弹入</option>
+															<option value="bounceInUp">向上弹入</option>
+															<option value="bounceInDown">向下弹入</option>
+															<option value="flipInX">翻开进入</option>
+															<option value="rollInRight">向右翻滚</option>
+															<option value="rollInLeft">向左翻滚</option>
+															<option value="rollInUp">向上翻滚</option>
+															<option value="rollInDown">向下翻滚</option>
+															<option value="bounceIn">中心弹入</option>
+															<option value="lightSpeedInRight">光速向右</option>
+															<option value="lightSpeedInLeft">光速向左</option>
+															<option value="lightSpeedInUp">光速向上</option>
+															<option value="lightSpeedInDown">光速向下</option>
+															<option value="zoomIn">中心放大</option>
+															<option value="twisterInDownRight">魔幻向右</option>
+															<option value="twisterInDownLeft">魔幻向左</option>
+															<option value="twisterInDownUp">魔幻向上</option>
+															<option value="twisterInDownDown">魔幻向下</option>
+															<option value="puffIn">缩小进入</option>
+															<option value="twisterInUpLeft">向左旋转</option>
+															<option value="twisterInUpRight">向右旋转</option>
+															<option value="twisterInUpUp">向上旋转</option>
+															<option value="twisterInUpDown">向下旋转</option>
+															<option value="rotateIn">旋转</option> 
+															 
 														</select>
 													</div>
 													<div class="col-sm-4"><div class="btn btn-darkblue btn-block" id="anima_yl">预览</div></div>
 												</div>
 
 												<div class="form-group">
-													<label class="col-sm-3 control-label">动画速度: <span
+													<label class="col-sm-3 control-label">时间: <span
 														class="asterisk">*</span></label>
-													<div class="col-sm-5">
-														<div id="slider-dh-time" class="slider-primary mb20"></div>
-													</div>
 													<div class="col-sm-3">
-														<input type="text" name="anima_duration"
-															id="anima_duration" class="form-control" value="0"
-															onchange="animation()" />
-													</div>
+															<input type="text" id="anima_duration" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+													<label class="col-sm-3 control-label">延时: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-3">
+															<input type="text" id="anima_timeDelay" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+												</div> 
+												<div class="form-group">
+													<label class="col-sm-3 control-label">次数: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-3">
+															<input type="text" id="anima_iterate" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+													<label class="col-sm-3 control-label">是否循环: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-3">
+															<input type="checkbox"  id="anima_infinite" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+													 
 												</div>
 
 
@@ -1762,10 +1798,14 @@ body {
 									var list = json.list;
 									if (json.state == 0) {
 										for (var v = 0; v < list.length; v++) {
-											html += '<tr><td>'
+											html += '<tr id="'
+												+ list[v]._id 
+												+ '"><td>'
 													+ list[v].sort
 													+ '</td>'
-													+ '<td onclick="elve_click(this)" elveid="'
+													+ '<td  class="elves_context" onclick="elve_click(this)" elveid="'
+													+ list[v]._id 
+													+ '" id="'
 													+ list[v]._id 
 													+ '">'
 													+ list[v].title
@@ -1787,6 +1827,7 @@ body {
 									}
 									$('#elves').html('');
 									$('#elves').html(html);
+									initContext2();
 									$("[elveid='" + elveid + "']").find("td")
 											.addClass("bg_color");
 									
@@ -1933,6 +1974,8 @@ body {
 															animo.iterate);
 													elve.attr('anima_keep',
 															animo.keep);
+													elve.attr('anima_timeDelay',
+															animo.timeDelay);  
 												}
 
 											}
@@ -2188,15 +2231,26 @@ body {
 								}else{
 									$('#anima_duration').val(0);
 								} 
-								if(anima.iterate!=null){
-									$('#anima_iterate').val(anima.iterate);
+								if(anima.iterate!=null){ 
+									if(anima.iterate=='infinite'){
+										$('#anima_infinite').prop("checked",true);
+										$('#anima_iterate').val(0);
+									}else{
+										$('#anima_iterate').val(anima.iterate);
+										$('#anima_infinite').prop("checked",false);
+									}
+									
 								}
 								if(anima.keep!=null){
 									$('#anima_keep').val(anima.keep);
 								}
 								if(anima.type!=null){
 									$('#anima_type').val(anima.type);
-								}  
+								}
+								if(anima.timeDelay!=null){
+									$('#anima_timeDelay').val(anima.timeDelay);
+								}
+								
 							}
 							
 							
@@ -2249,8 +2303,9 @@ body {
 					elvel.anima_value = $(this).attr("anima_value");
 					elvel.anima_duration = $(this).attr("anima_duration");
 					elvel.anima_iterate = $(this).attr("anima_iterate");
-					elvel.anima_keep = $(this).attr("anima_keep");
-					elvel.anima_type = $(this).attr("anima_type");
+					elvel.anima_keep = $(this).attr("anima_keep"); 
+					elvel.anima_type = $(this).attr("anima_type"); 
+					elvel.anima_timeDelay = $(this).attr("anima_timeDelay");
 
 					elvels.push(elvel);
 
@@ -2322,9 +2377,9 @@ body {
 						function(json) {
 							if (json.state == 0) {
 
-							} else {
-
+							} else { 
 							}
+							//window.location.reload();
 						}, "json")
 			}
 
@@ -2333,7 +2388,7 @@ body {
 		var obj = {};
 		var globalID;
 		var ybobj = null;
-		function animation() {
+		function animation1() {
 
 			//绑定数据到dom对象
 			console.log("#elve_" + elveid);
@@ -2588,6 +2643,34 @@ body {
 				globalID = requestAnimationFrame(animateX);
 			}
 
+		}
+		//css动画
+		function animation(){
+			console.log($("#elve_" + elveid).css("animation"));
+			$("#elve_" + elveid).css("animation",''); 
+			console.log($("#elve_" + elveid).css("animation")); 
+			//绑定动画到当前精灵上
+			var anima='';
+			anima+=$('#anima_value').val()+' ';
+			anima+=$('#anima_duration').val()+'s ';
+			anima+='ease '+$('#anima_timeDelay').val()+'s ';
+			if($('#anima_infinite').is(':checked')){
+				anima+="infinite normal both running";
+				$("#elve_" + elveid).attr("anima_iterate","infinite");
+			}else{
+				anima+=$('#anima_iterate').val()+" normal both running";
+				$("#elve_" + elveid).attr("anima_iterate",$('#anima_iterate').val());
+			}
+			
+			$("#elve_" + elveid).css("animation",anima); 
+			//绑定动画数据到精灵上
+			$("#elve_" + elveid).attr("anima_value",$('#anima_value').val());
+			$("#elve_" + elveid).attr("anima_duration",$('#anima_duration').val());
+			$("#elve_" + elveid).attr("anima_timeDelay",$('#anima_timeDelay').val());
+			console.log($("#elve_" + elveid).attr("anima_timeDelay")) ;
+			
+			
+			  
 		}
 		$('#anima_yl').click(function(){
 			animation();
@@ -3434,8 +3517,17 @@ body {
 		//保存刷新
 		function saveDataFresh(){
 			save_slide_roll();
-			saveLayer();
-			window.location.href='${ctx}/suc/mobilescene!create.action?id=${entity._id}';
+			saveLayer(); 
+		    jQuery.gritter.add({
+					title:'操作提示',
+					text: '保存数据成功',
+			      class_name: 'growl-success',
+			      image: '${ctx}/css_js/images/screen.png',
+					sticky: false,
+					time: ''
+				 });
+		    window.location.reload();
+			
 		}
 		//删除层
 		function  delScene(id){
@@ -3561,6 +3653,110 @@ body {
 	            
 	        } ]);
 		} 
+		
+		
+		//加载右键菜单
+		function  initContext2(){
+			context.init({preventDoubleContext: false});
+			context.attach('.elves_context', [{
+	            header: ''
+	        },
+	        {
+	            text: '上移',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url ="elve_"+context.target.id; 
+	                if(parseInt($('#'+url).css('z-index'))<=1000){
+	                	$('#'+url).css('z-index',parseInt($('#'+url).css('z-index'))+1);
+	                	$('#'+url).attr('z_index',$('#'+url).css('z-index'));
+	                }else{
+	                	 //当前精灵为最顶层，其他精灵全部下移;
+	                	  $('.elves').each(function(e){
+	                		  if(parseInt($(this).css('z-index'))>=2){
+	                			  $(this).css('z-index',parseInt($(this).css('z-index'))-1);
+	                			  $(this).attr('z_index',$(this).css('z-index'));
+	                		  } 
+	                	  });
+	                	  $('#'+url).css('z-index',1000);
+	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	                	  
+	                }
+	                
+	            },
+
+	        },{
+	            text: '下移',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url ="elve_"+context.target.id; 
+	                var index=$('#'+url).css('z-index');
+	                if(parseInt(index)>=2){
+	                	 $('#'+url).css('z-index',parseInt(index)-1);
+	                	 $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	                }else{
+	                	  //当前精灵为最底层，其他精灵全部上移;
+	                	  $('.elves').each(function(e){
+	                		  if(parseInt($(this).css('z-index'))<=1000){
+	                			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
+	                			  $(this).attr('z_index',$(this).css('z-index'));
+	                		  }
+	                		 
+	                	  });
+	                	  $('#'+url).css('z-index',1);
+	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	                	  
+	                }
+	               
+	            },
+	            
+	        } ,{
+	            text: '置顶',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url ="elve_"+context.target.id;  
+	              //当前精灵为最顶层，其他精灵全部下移;
+              	  $('.elves').each(function(e){
+              		  if(parseInt($(this).css('z-index'))>=2){
+              			  $(this).css('z-index',parseInt($(this).css('z-index'))-1); 
+              			  $(this).attr('z_index',$(this).css('z-index'));
+              		  } 
+              	  });
+              	  $('#'+url).css('z-index',1000);
+              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	            },
+	            
+	        } ,{
+	            text: '置底',
+	            href: '#',
+	            action: function(e) {
+	                e.preventDefault();
+	                var url ="elve_"+context.target.id; 
+	                //当前精灵为最底层，其他精灵全部上移;
+              	  $('.elves').each(function(e){
+              		  if(parseInt($(this).css('z-index'))<=1000){
+              			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
+              			  $(this).attr('z_index',$(this).css('z-index'));
+              		  }
+              		 
+              	  });
+              	  $('#'+url).css('z-index',1);
+              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
+	               
+	            },
+	            
+	        } ]);
+		} 
+		//初始化数据
+		function  initData(){
+			var  scid='${scid}';  
+			if(scid!=''){
+				init_layer(scid);
+			}
+		}
+		initData();
 	</script>
 	<%@include file="/com/img2.jsp"%>
 	<%@include file="/com/preview1.jsp"%>

@@ -12,9 +12,8 @@ function del(id) {
 		location.href = "${ctx}/suc/mobilescene!delete.action?_id="+ id;
 	}		
 }
-function add(){
-     
-		location.href ="${ctx}/suc/mobilescene!input.action";
+function add(){ 
+	location.href ="${ctx}/suc/mobilescene!create.action";
 }
 function upd(id){
    var submitData = {

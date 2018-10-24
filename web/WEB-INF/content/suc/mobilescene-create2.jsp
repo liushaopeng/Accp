@@ -10,8 +10,7 @@
 	href="${ctx}/iphone/css/style.css">
 <script type="text/javascript"
 	src="${ctx}/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<link href="${ctx}/animo/animate-animo.css" rel="stylesheet" />
-<script type="text/javascript" src="${ctx}/animo/animo.js"></script>
+<link href="${ctx}/css_js/css/an.css" rel="stylesheet" /> 
 <script type="text/javascript" src="${ctx}/transformjs/transform.js"></script>
 <script type="text/javascript" src="${ctx}/transformjs/asset/tick.js"></script>
 <script type="text/javascript" src="${ctx}/transformjs/asset/to.js"></script>
@@ -492,34 +491,57 @@ body {
 														<select class="form-control col-sm-3" id="anima_value"
 															name="anima_value" onchange="animation()">
 															<option value="">请选择</option>
-															<option value="swing">摇摆</option>
-															<option value="fadeBig">放大</option>
-															<option value="fadeSmall">缩小</option>
-															<option value="spinner">旋转</option>
-															<option value="fadeInLeft">左飞入</option>
-															<option value="fadeInRight">右飞入</option>
-															<option value="fadeInUp">上飞入</option>
-															<option value="fadeInDown">下飞入</option>
-															<option value="flipOutX">上下翻转</option>
-															<option value="flipOutY">左右翻转</option>
-															<option value="left_right">左右运动</option>
-															<option value="up_down">上下运动</option>
+															<option value="fadeIn">淡入</option>
+															<option value="fadeInLeft">向右移入</option>
+															<option value="fadeInRight">向左移入</option>
+															<option value="fadeInUp">向上移入</option>
+															<option value="fadeInDown">向下移入</option>
+															<option value="flipInY">翻转进入</option>
+															<option value="bounceInLeft">向右弹入</option>
+															<option value="bounceInRight">向左弹入</option>
+															<option value="bounceInUp">向上弹入</option>
+															<option value="bounceInDown">向下弹入</option>
+															<option value="flipInX">翻开进入</option>
+															<option value="rollInRight">向右翻滚</option>
+															<option value="rollInLeft">向左翻滚</option>
+															<option value="rollInUp">向上翻滚</option>
+															<option value="rollInDown">向下翻滚</option>
+															<option value="bounceIn">中心弹入</option>
+															<option value="lightSpeedInRight">光速向右</option>
+															<option value="lightSpeedInLeft">光速向左</option>
 														</select>
 													</div>
 													<div class="col-sm-4"><div class="btn btn-darkblue btn-block" id="anima_yl">预览</div></div>
 												</div>
 
 												<div class="form-group">
-													<label class="col-sm-3 control-label">动画速度: <span
+													<label class="col-sm-3 control-label">时间: <span
 														class="asterisk">*</span></label>
-													<div class="col-sm-5">
-														<div id="slider-dh-time" class="slider-primary mb20"></div>
-													</div>
 													<div class="col-sm-3">
-														<input type="text" name="anima_duration"
-															id="anima_duration" class="form-control" value="0"
-															onchange="animation()" />
-													</div>
+															<input type="text" id="anima_duration" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+													<label class="col-sm-3 control-label">延时: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-3">
+															<input type="text" id="anima_timeDelay" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+												</div> 
+												<div class="form-group">
+													<label class="col-sm-3 control-label">次数: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-3">
+															<input type="text" id="anima_iterate" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+													<label class="col-sm-3 control-label">是否循环: <span
+														class="asterisk">*</span></label>
+													<div class="col-sm-3">
+															<input type="checkbox"  id="anima_infinite" name="sort"
+															class="form-control" onchange="animation()" placeholder="0" value="0" />
+													</div> 
+													 
 												</div>
 
 
@@ -831,6 +853,7 @@ body {
 													<tr>
 														<th>序号</th>
 														<th>名称</th>
+														<th>图片</th>
 														<th>操作</th>
 
 													</tr>
@@ -1937,7 +1960,7 @@ body {
 											}
 											
 											
-											var elve_title = $('<div  style="position: absolute;margin-top: 103%;font-size: 16px;width: 100%;text-align: center;color:'+list[i].title_color+'">'+list[i].title+'</div>');
+											var elve_title = $('<div  style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+list[i].title_color+'">'+list[i].title+'</div>');
 											elve.append(elve_title);
 											elve.bind("click", function() {
 												elves_click(this);
@@ -1995,7 +2018,7 @@ body {
 													//$(ui.element).disable_open();
 												}
 											});
-											$(elve).Tdrag({
+											$(elve).Tdrag({ 
 												cbStart:function(e,v){  
 													init_elve($(e).attr("id").replace("elve_",""));
 													show_evle();
@@ -2007,6 +2030,7 @@ body {
 											    	$(e).css("z-index",$(e).attr('z_index'))
 											    }//移动结束时候的回调函数
 											    ,disableInput:".disable"
+											    
 											});
 											div.append(elve);
 
@@ -2247,8 +2271,9 @@ body {
 					elvel.anima_value = $(this).attr("anima_value");
 					elvel.anima_duration = $(this).attr("anima_duration");
 					elvel.anima_iterate = $(this).attr("anima_iterate");
-					elvel.anima_keep = $(this).attr("anima_keep");
-					elvel.anima_type = $(this).attr("anima_type");
+					elvel.anima_keep = $(this).attr("anima_keep"); 
+					elvel.anima_type = $(this).attr("anima_type"); 
+					elvel.anima_timeDelay = $(this).attr("anima_timeDelay");
 
 					elvels.push(elvel);
 
@@ -2331,7 +2356,7 @@ body {
 		var obj = {};
 		var globalID;
 		var ybobj = null;
-		function animation() {
+		function animation1() {
 
 			//绑定数据到dom对象
 			console.log("#elve_" + elveid);
@@ -2586,6 +2611,31 @@ body {
 				globalID = requestAnimationFrame(animateX);
 			}
 
+		}
+		//css动画
+		function animation(){
+			$("#elve_" + elveid).css("animation",''); 
+			//绑定动画到当前精灵上
+			var anima='';
+			anima+=$('#anima_value').val()+' ';
+			anima+=$('#anima_duration').val()+'s ';
+			anima+='ease '+$('#anima_timeDelay').val()+'s ';
+			if($('#anima_infinite').is(':checked')){
+				anima+="infinite normal both running";
+				$("#elve_" + elveid).attr("anima_iterate","infinite");
+			}else{
+				anima+=$('#anima_iterate').val()+" normal both running";
+				$("#elve_" + elveid).attr("anima_iterate",$('#anima_iterate').val());
+			}
+			
+			$("#elve_" + elveid).css("animation",anima); 
+			//绑定动画数据到精灵上
+			$("#elve_" + elveid).attr("anima_value",$('#anima_value').val());
+			$("#elve_" + elveid).attr("anima_duration",$('#anima_duration').val());
+			$("#elve_" + elveid).attr("anima_timeDelay",$('#anima_timeDelay').val());
+			
+			
+			  
 		}
 		$('#anima_yl').click(function(){
 			animation();
@@ -3216,6 +3266,9 @@ body {
 												+ '<td>'
 												+ list[v].title
 												+ '</td>'
+												+ '<td><img src="${filehttp}'
+												+ list[v].picurl
+												+ '" style="height:25px"/></td>'
 												+ '<td class="table-action"><div class="btn-group1 position-r"><a data-toggle="dropdown" class="dropdown-toggle">'
 												+ '<i class="fa fa-cog"></i></a>'
 												+ '<ul role="menu" class="dropdown-menu pull-right">'
