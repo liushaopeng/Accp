@@ -10,7 +10,14 @@ public class AnimationInfo extends ReflectionDBObject{
 
 	private  String custid;
 	private  String toUser; 
+	private  int  sort;
+	/**
+	 * 动作分类（多个动作时候用）
+	 */
 	private  String type;
+	/**
+	 * 动画名称
+	 */
 	private  String value;
 	/**
 	 * 持续时间
@@ -27,8 +34,13 @@ public class AnimationInfo extends ReflectionDBObject{
 	/**
 	 * 延时
 	 */
-	private  String timeDelay;
-	
+	private  String timeDelay; 
+	public int getSort() {
+		return sort;
+	}
+	public void setSort(int sort) {
+		this.sort = sort;
+	}
 	public String getTimeDelay() {
 		return timeDelay;
 	}

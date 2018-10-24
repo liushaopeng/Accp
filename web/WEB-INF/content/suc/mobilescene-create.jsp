@@ -557,9 +557,14 @@ body {
 													</div> 
 													 
 												</div>
-
+												
+											 
 
 											</div>
+											
+											
+											
+											
 										</div>
 									</div>
 
@@ -586,6 +591,33 @@ body {
 
 													<input type="text" id="music_url" class="form-control"
 														placeholder="请输入" value="${entity.music_url}" />
+												</div>
+
+											</div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label">音乐图标: <span
+													class="asterisk">*</span></label>
+												<div class="col-sm-5">
+
+													<input type="text" id="music_picurl"
+														class="form-control"
+														placeholder="尺寸375*667"  value="${entity.music_picurl}" />
+												</div>
+												<div class="col-sm-2"
+													style="height: 30px; line-height: 30px; margin-top: 3px">
+													<div class="button  btn-warning-alt "
+														style="text-align: center;">上传</div>
+													<div
+														style="position: absolute; width: 60px; height: 20px; top: 0px; opacity: 0">
+														<input type="file" class="musicpicurl"
+															style="width: 60px; height: 20px" />
+													</div>
+												</div>
+
+												<div class="col-sm-2"
+													style="height: 30px; line-height: 30px; margin-top: 3px">
+													<div class="button  btn-warning-alt "
+														style="text-align: center;" onclick="init_img('music_picurl','insScene','')">图库</div>
 												</div>
 
 											</div>
@@ -3018,9 +3050,11 @@ body {
 		fileInput("curtain_picurl", "11", "curtain_picurl", "1", function(e) {
 
 		});
+		fileInput("musicpicurl", "11", "music_picurl", "1", function(e) {
+
+		});
 		
 	</script>
-
 	<script type="text/javascript">
 		var editor = CKEDITOR.replace('roll_context');
 		//添加滚动字幕
@@ -3126,6 +3160,7 @@ body {
 		function save_music() {
 			var submitData = {
 				music_url : $('#music_url').val(),
+				music_picurl : $('#music_picurl').val(),
 				music_color : $('#music_color').val(),
 				id : '${msid}',
 				music_transparent : $('#music_transparent').val(),

@@ -34,10 +34,21 @@ public class MobileScene extends ReflectionDBObject{
 	 */
 	private String  music_color;
 	/**
+	 * 自定义音乐图标
+	 */
+	private String  music_picurl;
+	/**
 	 * 音乐透明度
 	 */
 	private String  music_transparent;
+	
 	 
+	public String getMusic_picurl() {
+		return music_picurl;
+	}
+	public void setMusic_picurl(String music_picurl) {
+		this.music_picurl = music_picurl;
+	}
 	public String getMusic_url() {
 		return music_url;
 	}

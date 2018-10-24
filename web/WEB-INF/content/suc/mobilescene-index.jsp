@@ -439,10 +439,16 @@ function  animoc(t){
 			<a href="javascript:bf();" class="mscBtn" id="audioBtn"
 				style="cursor: pointer;">
 				<div id="bfid"
-					style="margin-left:${mp3.marginleft}%;margin-top:${mp3.margintop}%;color:${entity.music_color}">
+					style="margin-left:${entity.marginleft}%;margin-top:${entity.margintop}%;color:${entity.music_color}">
 					<span class="fa-stack fa-lg"> <i
-						class="fa fa-circle-o fa-stack-2x fa-spin"></i> <i
-						class="fa fa-music fa-stack-1x fa-spin pr-5"></i>
+						class="fa fa-circle-o fa-stack-2x fa-spin"></i>
+						<c:if test="${empty entity.music_picurl}">
+						<i class="fa fa-music fa-stack-1x fa-spin pr-5"></i>
+						</c:if> 
+						<c:if test="${not empty entity.music_picurl}">
+						 <img src="${filehttp}/${entity.music_picurl}" class="fa-spin pr-5"/>
+						</c:if> 
+						
 					</span>
 				</div>
 			</a>

@@ -1657,6 +1657,7 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 		String id=Struts2Utils.getParameter("id");
 		String music_url=Struts2Utils.getParameter("music_url");
 		String music_color=Struts2Utils.getParameter("music_color");
+		String music_picurl=Struts2Utils.getParameter("music_picurl");
 		String music_transparent=Struts2Utils.getParameter("music_transparent");
 		if(StringUtils.isNotEmpty(id)){
 			DBObject db=baseDao.getMessage(PubConstants.SUC_MOBLILESCENE, Long.parseLong(id));
@@ -1665,10 +1666,85 @@ public class MobilesceneAction extends TotalAction<MobileScene> {
 			ms.setMusic_color(music_color);
 			ms.setMusic_transparent(music_transparent);
 			ms.setMusic_url(music_url);
+			ms.setMusic_picurl(music_picurl);
 			baseDao.insert(PubConstants.SUC_MOBLILESCENE, ms);
 			sub_map.put("state", 0);
 		} 
 		String json = JSONArray.fromObject(sub_map).toString();
+		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
+    }
+    /**
+     * 保存动画（多个）
+     */
+    public void  saveAnima(){
+    	SpringSecurityUtils.getCurrentUser().getId(); ;
+		Map<String, Object> sub_map = new HashMap<>();
+		sub_map.put("state",1);
+		String id=Struts2Utils.getParameter("id");
+		String type=Struts2Utils.getParameter("type");
+		String sort=Struts2Utils.getParameter("sort");
+		String value=Struts2Utils.getParameter("value");
+		String duration=Struts2Utils.getParameter("duration");
+		String iterate=Struts2Utils.getParameter("iterate");
+		String keep=Struts2Utils.getParameter("keep");
+		String timeDelay=Struts2Utils.getParameter("timeDelay");
+		AnimationInfo info=null;
+		if(StringUtils.isNotEmpty(id)){
+			DBObject db=baseDao.getMessage(PubConstants.SUC_ANIMATIONINFO,id);
+			info=(AnimationInfo) UniObject.DBObjectToObject(db, AnimationInfo.class);
+			info.set_id(id);
+			info.setSort(Integer.parseInt(sort));
+		 
+		}else {
+			info=new AnimationInfo();
+			HashMap<String,Object>whereMap=new HashMap<>();
+			whereMap.put("type",type);
+			Long count=baseDao.getCount(PubConstants.SUC_ANIMATIONINFO,whereMap);
+			id=type+"_"+count;
+			info.set_id(id);
+			info.setSort((int)(count+1));
+		}
+		info.setValue(value);
+		info.setType(type);
+		info.setDuration(duration);
+		info.setIterate(iterate);
+		info.setKeep(keep);
+		info.setTimeDelay(timeDelay);
+		sub_map.put("state",0);
+		String json = JSONArray.fromObject(sub_map).toString();
+		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
+    }
+    /**
+     * 删除动画
+     */
+    public  void  delAnima() {
+    	Map<String, Object> sub_map = new HashMap<>();
+		sub_map.put("state",1);
+		String id=Struts2Utils.getParameter("id");
+	    int  count=baseDao.delete(PubConstants.SUC_ANIMATIONINFO, id);
+	    if(count>0) {
+	    	sub_map.put("state",0);
+	    }
+		String json = JSONArray.fromObject(sub_map).toString();
+		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
+    } 
+    /**
+     * 获取全部动画
+     */
+    public void  getAnima() {
+    	Map<String, Object> sub_map = new HashMap<>();
+		sub_map.put("state",1);
+    	String type=Struts2Utils.getParameter("type");
+    	HashMap<String, Object>whereMap=new HashMap<>();
+    	HashMap<String, Object>sortMap=new HashMap<>();
+    	sortMap.put("sort", -1);
+    	whereMap.put("type", type);
+    	List<DBObject>list=baseDao.getList(PubConstants.SUC_ANIMATIONINFO, whereMap, sortMap);
+    	if(list.size()>0) {
+    		sub_map.put("state",list);
+    		sub_map.put("state",0);
+    	}
+    	String json = JSONArray.fromObject(sub_map).toString();
 		Struts2Utils.renderJson(json.substring(1, json.length()-1), new String[0]);  
     }
     /**
