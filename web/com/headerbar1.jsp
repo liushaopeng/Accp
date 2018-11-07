@@ -52,23 +52,12 @@
               
             </div>
           </li> 
-          <li style="float: right;">
-            <div class="btn-group"> 
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                 
-                <%
-                if(custName==""||custName==null){
-                %> 
-                	管理员
-                <%}else{%>
-                	<%=custName%> 	
-                <%}%>
-                <span class="caret"></span>
+             <li style="float: right;" onclick="window.location.href='${ctx}/suc/mobilescene.action?'">
+            <div class="btn-group">
+              <button class="btn btn-default dropdown-toggle tp-icon" data-toggle="dropdown">
+                <i class="fa  fa-dot-circle-o"></i> 退出
               </button>
-              <ul class="dropdown-menu dropdown-menu-usermenu pull-right"> 
-                <li><a href="${ctx}/user/user!passwd.action"><i class="fa fa-cogs"></i>密码修改</a></li>
-                <li><a href="${ctx}/j_spring_security_logout"><i class="glyphicon glyphicon-log-out"></i> 退出后台</a></li>
-              </ul>
+              
             </div>
           </li>
           

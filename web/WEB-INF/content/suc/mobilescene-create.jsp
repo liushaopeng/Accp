@@ -10,14 +10,14 @@
 	href="${ctx}/iphone/css/style.css">
 <script type="text/javascript"
 	src="${ctx}/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<link href="${ctx}/css_js/css/an.css" rel="stylesheet" /> 
+<link href="${ctx}/css_js/css/an.css" rel="stylesheet" />
 <script type="text/javascript" src="${ctx}/transformjs/transform.js"></script>
 <script type="text/javascript" src="${ctx}/transformjs/asset/tick.js"></script>
 <script type="text/javascript" src="${ctx}/transformjs/asset/to.js"></script>
 <script type="text/javascript"
 	src="${ctx}/transformjs/asset/alloy_flow.js"></script>
-<script type="text/javascript" src="${ctx}/ckeditor/ckeditor.js"></script> 
-<script type="text/javascript" src="${ctx}/css_js/Tdrag/js/Tdrag.js"></script> 
+<script type="text/javascript" src="${ctx}/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="${ctx}/css_js/Tdrag/js/Tdrag.js"></script>
 <style type="text/css">
 *, *:after, *:before {
 	box-sizing: border-box;
@@ -28,7 +28,7 @@ body {
 }
 
 .iphone {
-    margin-top: 90px;
+	margin-top: 90px;
 	box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #999, 0 0 30px
 		0px rgba(0, 0, 0, 0.7);
 	border: 5px solid #d9dbdc;
@@ -63,7 +63,7 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: white;
-	background-size:cover;
+	background-size: cover;
 }
 
 .elves {
@@ -133,9 +133,9 @@ body {
 
 					</div>
 				</div>
-	            <input type="button" class="disable" value="禁止/启用拖拽">
+				<input type="button" class="disable" value="禁止/启用拖拽">
 				<div class="row" id="hswe" style="width: 50%; float: right;">
-					<ul class="nav nav-tabs nav-justified" id="tabs"> 
+					<ul class="nav nav-tabs nav-justified" id="tabs">
 						<li id="li_2"><a href="#tab2" data-toggle="tab"><strong>精灵管理</strong></a></li>
 						<li id="li_3"><a href="#tab3" data-toggle="tab"><strong>图层管理</strong></a></li>
 
@@ -156,7 +156,7 @@ body {
 
 									</ul>
 
-									<div class="tab-content"  id="jltabs-body">
+									<div class="tab-content" id="jltabs-body">
 										<div class="tab-pane active" id="jltab1">
 											<div class="panel-body"
 												style="height: 400px; overflow: scroll;">
@@ -172,7 +172,8 @@ body {
 																placeholder="请输入" />
 														</div>
 														<div class="col-sm-2">
-															 <div id="elve_yl" style="height: 40px;width: 40px;background-size: 100% 100%"></div>
+															<div id="elve_yl"
+																style="height: 40px; width: 40px; background-size: 100% 100%"></div>
 														</div>
 
 													</div>
@@ -180,10 +181,10 @@ body {
 														<label class="col-sm-3 control-label">标题颜色: <span
 															class="asterisk">*</span></label>
 														<div class="col-sm-5">
-														<input type="text" id="elve_title_color"
+															<input type="text" id="elve_title_color"
 																class="form-control color" onchange="bg_onchange(this)"
-																readonly="readonly" /> 
-														</div> 
+																readonly="readonly" />
+														</div>
 													</div>
 													<div class="form-group">
 														<label class="col-sm-3 control-label">背景图片: <span
@@ -192,7 +193,7 @@ body {
 
 															<input type="text" id="elve_picurl"
 																onchange="picurl_change()"
-															    class="elve_picurl form-control" />
+																class="elve_picurl form-control" />
 														</div>
 														<div class="col-sm-2"
 															style="height: 30px; line-height: 30px; margin-top: 3px">
@@ -207,7 +208,7 @@ body {
 
 														<div class="col-sm-2"
 															style="height: 30px; line-height: 30px; margin-top: 3px">
-															<div  class="button  btn-warning-alt "
+															<div class="button  btn-warning-alt "
 																style="text-align: center;"
 																onclick="init_img('elve_picurl','insScene','elve_picurl_change')">图库</div>
 														</div>
@@ -245,7 +246,7 @@ body {
 														<div class="col-sm-5">
 
 															<input type="text" id="elve_url" class="form-control"
-																placeholder="请输入"  onchange="elveChange()"/>
+																placeholder="请输入" onchange="elveChange()" />
 														</div>
 
 														<!--222-->
@@ -256,7 +257,7 @@ body {
 														<div class="col-sm-5">
 
 															<input type="text" id="elve_sort" class="form-control"
-																placeholder="请输入"  onchange="elveChange()"/>
+																placeholder="请输入" onchange="elveChange()" />
 														</div>
 
 														<!--222-->
@@ -483,88 +484,350 @@ body {
 										</div>
 										<div class="tab-pane" id="jltab2">
 
-											<div class="panel-body">
+											<div class="panel-body" 
+												style="height: 400px; overflow: scroll;">
 												<div class="form-group">
-													<label class="col-sm-3 control-label">动画样式: <span
-														class="asterisk">*</span></label>
-													<div class="col-sm-4">
-														<select class="form-control col-sm-3" id="anima_value"
-															name="anima_value" onchange="animation()">
-															<option value="">请选择</option>
-															<option value="fadeIn">淡入</option>
-															<option value="fadeInLeft">向右移入</option>
-															<option value="fadeInRight">向左移入</option>
-															<option value="fadeInUp">向上移入</option>
-															<option value="fadeInDown">向下移入</option>
-															<option value="flipInY">翻转进入</option>
-															<option value="bounceInLeft">向右弹入</option>
-															<option value="bounceInRight">向左弹入</option>
-															<option value="bounceInUp">向上弹入</option>
-															<option value="bounceInDown">向下弹入</option>
-															<option value="flipInX">翻开进入</option>
-															<option value="rollInRight">向右翻滚</option>
-															<option value="rollInLeft">向左翻滚</option>
-															<option value="rollInUp">向上翻滚</option>
-															<option value="rollInDown">向下翻滚</option>
-															<option value="bounceIn">中心弹入</option>
-															<option value="lightSpeedInRight">光速向右</option>
-															<option value="lightSpeedInLeft">光速向左</option>
-															<option value="lightSpeedInUp">光速向上</option>
-															<option value="lightSpeedInDown">光速向下</option>
-															<option value="zoomIn">中心放大</option>
-															<option value="twisterInDownRight">魔幻向右</option>
-															<option value="twisterInDownLeft">魔幻向左</option>
-															<option value="twisterInDownUp">魔幻向上</option>
-															<option value="twisterInDownDown">魔幻向下</option>
-															<option value="puffIn">缩小进入</option>
-															<option value="twisterInUpLeft">向左旋转</option>
-															<option value="twisterInUpRight">向右旋转</option>
-															<option value="twisterInUpUp">向上旋转</option>
-															<option value="twisterInUpDown">向下旋转</option>
-															<option value="rotateIn">旋转</option> 
-															 
-														</select>
+												<div class="col-sm-6">
+												  <div class="btn btn-lightblue btn-block"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;添加动画</div>
+												</div>
+												<div class="col-sm-6"> 
+												 <div class="btn btn-white btn-block"><i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;&nbsp;预览动画</div>
+												</div>
+												</div>  
+												<div class="panel-group" id="spiritlist">
+													<div class="panel panel-default">
+														<div class="panel-heading">
+															<h4 class="panel-title">
+																
+																	<div style="background-color: #f7f7f7;color: #666;border-bottom: 1px solid #ddd;padding:15px 18px 40px 15px;display: block;">
+																	
+												                      <div class="col-sm-3">
+												                          <div>动画1</div>
+												                      </div>
+												                      <div class="col-sm-6"> 
+												                          <div>向右移入</div>
+												                      </div>
+												                      <div class="col-sm-3"> 
+												                         <div class="col-sm-4"><i class="fa fa-play"></i></div>
+												                         <div class="col-sm-4"><i class="fa fa-trash-o"></i></div> 
+												                         <div class="col-sm-4"> 
+																	    <i   data-toggle="collapse" data-parent="#spiritlist"
+																	href="#sprit_One"  class="fa fa-reorder"></i></div>   
+												                      </div>
+												                    </div>   
+															</h4>
+														</div>
+														<div id="sprit_One" class="panel-collapse collapse in"
+															  >
+															<div class="panel-body">
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">动画样式: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-4">
+																		<select class="form-control col-sm-3" id="anima_value"
+																			name="anima_value" onchange="animation()">
+																			<option value="">请选择</option>
+																			<option value="fadeIn">淡入</option>
+																			<option value="fadeInLeft">向右移入</option>
+																			<option value="fadeInRight">向左移入</option>
+																			<option value="fadeInUp">向上移入</option>
+																			<option value="fadeInDown">向下移入</option>
+																			<option value="flipInY">翻转进入</option>
+																			<option value="bounceInLeft">向右弹入</option>
+																			<option value="bounceInRight">向左弹入</option>
+																			<option value="bounceInUp">向上弹入</option>
+																			<option value="bounceInDown">向下弹入</option>
+																			<option value="flipInX">翻开进入</option>
+																			<option value="rollInRight">向右翻滚</option>
+																			<option value="rollInLeft">向左翻滚</option>
+																			<option value="rollInUp">向上翻滚</option>
+																			<option value="rollInDown">向下翻滚</option>
+																			<option value="bounceIn">中心弹入</option>
+																			<option value="lightSpeedInRight">光速向右</option>
+																			<option value="lightSpeedInLeft">光速向左</option>
+																			<option value="lightSpeedInUp">光速向上</option>
+																			<option value="lightSpeedInDown">光速向下</option>
+																			<option value="zoomIn">中心放大</option>
+																			<option value="twisterInDownRight">魔幻向右</option>
+																			<option value="twisterInDownLeft">魔幻向左</option>
+																			<option value="twisterInDownUp">魔幻向上</option>
+																			<option value="twisterInDownDown">魔幻向下</option>
+																			<option value="puffIn">缩小进入</option>
+																			<option value="twisterInUpLeft">向左旋转</option>
+																			<option value="twisterInUpRight">向右旋转</option>
+																			<option value="twisterInUpUp">向上旋转</option>
+																			<option value="twisterInUpDown">向下旋转</option>
+																			<option value="rotateIn">旋转</option>
+
+																		</select>
+																	</div>
+																	<div class="col-sm-4">
+																		<div class="btn btn-white btn-block" id="anima_yl"><i class="fa fa-play"></i>&nbsp;预览</div>
+																	</div>
+																</div>
+
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">时间: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_duration" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																	<label class="col-sm-3 control-label">延时: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_timeDelay" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">次数: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_iterate" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																	<label class="col-sm-3 control-label">是否循环: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="checkbox" id="anima_infinite" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+
+																</div>
+															</div>
+														</div>
 													</div>
-													<div class="col-sm-4"><div class="btn btn-darkblue btn-block" id="anima_yl">预览</div></div>
+													<div class="panel panel-default">
+														<div class="panel-heading">
+															<h4 class="panel-title">
+																		<div style="background-color: #f7f7f7;color: #666;border-bottom: 1px solid #ddd;padding:15px 18px 40px 15px;display: block;">
+																	
+												                      <div class="col-sm-3">
+												                          <div>动画1</div>
+												                      </div>
+												                      <div class="col-sm-6"> 
+												                          <div>向右移入</div>
+												                      </div>
+												                      <div class="col-sm-3"> 
+												                         <div class="col-sm-4"><i class="fa fa-play"></i></div>
+												                         <div class="col-sm-4"><i class="fa fa-trash-o"></i></div> 
+												                         <div class="col-sm-4"> 
+																	    <i   data-toggle="collapse" data-parent="#spiritlist"
+																	href="#sprit_Two"  class="fa fa-reorder"></i></div>   
+												                      </div>
+												                    </div>  
+															</h4>
+														</div>
+														<div id="sprit_Two" class="panel-collapse collapse"
+															style="height: 0px;">
+															<div class="panel-body">
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">动画样式: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-4">
+																		<select class="form-control col-sm-3" id="anima_value"
+																			name="anima_value" onchange="animation()">
+																			<option value="">请选择</option>
+																			<option value="fadeIn">淡入</option>
+																			<option value="fadeInLeft">向右移入</option>
+																			<option value="fadeInRight">向左移入</option>
+																			<option value="fadeInUp">向上移入</option>
+																			<option value="fadeInDown">向下移入</option>
+																			<option value="flipInY">翻转进入</option>
+																			<option value="bounceInLeft">向右弹入</option>
+																			<option value="bounceInRight">向左弹入</option>
+																			<option value="bounceInUp">向上弹入</option>
+																			<option value="bounceInDown">向下弹入</option>
+																			<option value="flipInX">翻开进入</option>
+																			<option value="rollInRight">向右翻滚</option>
+																			<option value="rollInLeft">向左翻滚</option>
+																			<option value="rollInUp">向上翻滚</option>
+																			<option value="rollInDown">向下翻滚</option>
+																			<option value="bounceIn">中心弹入</option>
+																			<option value="lightSpeedInRight">光速向右</option>
+																			<option value="lightSpeedInLeft">光速向左</option>
+																			<option value="lightSpeedInUp">光速向上</option>
+																			<option value="lightSpeedInDown">光速向下</option>
+																			<option value="zoomIn">中心放大</option>
+																			<option value="twisterInDownRight">魔幻向右</option>
+																			<option value="twisterInDownLeft">魔幻向左</option>
+																			<option value="twisterInDownUp">魔幻向上</option>
+																			<option value="twisterInDownDown">魔幻向下</option>
+																			<option value="puffIn">缩小进入</option>
+																			<option value="twisterInUpLeft">向左旋转</option>
+																			<option value="twisterInUpRight">向右旋转</option>
+																			<option value="twisterInUpUp">向上旋转</option>
+																			<option value="twisterInUpDown">向下旋转</option>
+																			<option value="rotateIn">旋转</option>
+
+																		</select>
+																	</div>
+																	<div class="col-sm-4">
+																		<div class="btn btn-darkblue btn-block" id="anima_yl">预览</div>
+																	</div>
+																</div>
+
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">时间: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_duration" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																	<label class="col-sm-3 control-label">延时: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_timeDelay" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">次数: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_iterate" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																	<label class="col-sm-3 control-label">是否循环: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="checkbox" id="anima_infinite" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="panel panel-default">
+														<div class="panel-heading">
+															<h4 class="panel-title">
+																		<div style="background-color: #f7f7f7;color: #666;border-bottom: 1px solid #ddd;padding:15px 18px 40px 15px;display: block;">
+																	
+												                      <div class="col-sm-3">
+												                          <div>动画1</div>
+												                      </div>
+												                      <div class="col-sm-6"> 
+												                          <div>向右移入</div>
+												                      </div>
+												                      <div class="col-sm-3"> 
+												                         <div class="col-sm-4"><i class="fa fa-play"></i></div>
+												                         <div class="col-sm-4"><i class="fa fa-trash-o"></i></div> 
+												                         <div class="col-sm-4"> 
+																	    <i   data-toggle="collapse" data-parent="#spiritlist"
+																	href="#sprit_Three"  class="fa fa-reorder"></i></div>   
+												                      </div>
+												                    </div>  
+															</h4>
+														</div>
+														<div id="sprit_Three" class="panel-collapse collapse"
+															style="height: 0px;">
+															<div class="panel-body">
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">动画样式: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-4">
+																		<select class="form-control col-sm-3" id="anima_value"
+																			name="anima_value" onchange="animation()">
+																			<option value="">请选择</option>
+																			<option value="fadeIn">淡入</option>
+																			<option value="fadeInLeft">向右移入</option>
+																			<option value="fadeInRight">向左移入</option>
+																			<option value="fadeInUp">向上移入</option>
+																			<option value="fadeInDown">向下移入</option>
+																			<option value="flipInY">翻转进入</option>
+																			<option value="bounceInLeft">向右弹入</option>
+																			<option value="bounceInRight">向左弹入</option>
+																			<option value="bounceInUp">向上弹入</option>
+																			<option value="bounceInDown">向下弹入</option>
+																			<option value="flipInX">翻开进入</option>
+																			<option value="rollInRight">向右翻滚</option>
+																			<option value="rollInLeft">向左翻滚</option>
+																			<option value="rollInUp">向上翻滚</option>
+																			<option value="rollInDown">向下翻滚</option>
+																			<option value="bounceIn">中心弹入</option>
+																			<option value="lightSpeedInRight">光速向右</option>
+																			<option value="lightSpeedInLeft">光速向左</option>
+																			<option value="lightSpeedInUp">光速向上</option>
+																			<option value="lightSpeedInDown">光速向下</option>
+																			<option value="zoomIn">中心放大</option>
+																			<option value="twisterInDownRight">魔幻向右</option>
+																			<option value="twisterInDownLeft">魔幻向左</option>
+																			<option value="twisterInDownUp">魔幻向上</option>
+																			<option value="twisterInDownDown">魔幻向下</option>
+																			<option value="puffIn">缩小进入</option>
+																			<option value="twisterInUpLeft">向左旋转</option>
+																			<option value="twisterInUpRight">向右旋转</option>
+																			<option value="twisterInUpUp">向上旋转</option>
+																			<option value="twisterInUpDown">向下旋转</option>
+																			<option value="rotateIn">旋转</option>
+
+																		</select>
+																	</div>
+																	<div class="col-sm-4">
+																		<div class="btn btn-darkblue btn-block" id="anima_yl">预览</div>
+																	</div>
+																</div>
+
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">时间: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_duration" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																	<label class="col-sm-3 control-label">延时: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_timeDelay" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-3 control-label">次数: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="text" id="anima_iterate" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+																	<label class="col-sm-3 control-label">是否循环: <span
+																		class="asterisk">*</span></label>
+																	<div class="col-sm-3">
+																		<input type="checkbox" id="anima_infinite" name="sort"
+																			class="form-control" onchange="animation()"
+																			placeholder="0" value="0" />
+																	</div>
+
+																</div>
+
+															</div>
+														</div>
+													</div>
 												</div>
 
-												<div class="form-group">
-													<label class="col-sm-3 control-label">时间: <span
-														class="asterisk">*</span></label>
-													<div class="col-sm-3">
-															<input type="text" id="anima_duration" name="sort"
-															class="form-control" onchange="animation()" placeholder="0" value="0" />
-													</div> 
-													<label class="col-sm-3 control-label">延时: <span
-														class="asterisk">*</span></label>
-													<div class="col-sm-3">
-															<input type="text" id="anima_timeDelay" name="sort"
-															class="form-control" onchange="animation()" placeholder="0" value="0" />
-													</div> 
-												</div> 
-												<div class="form-group">
-													<label class="col-sm-3 control-label">次数: <span
-														class="asterisk">*</span></label>
-													<div class="col-sm-3">
-															<input type="text" id="anima_iterate" name="sort"
-															class="form-control" onchange="animation()" placeholder="0" value="0" />
-													</div> 
-													<label class="col-sm-3 control-label">是否循环: <span
-														class="asterisk">*</span></label>
-													<div class="col-sm-3">
-															<input type="checkbox"  id="anima_infinite" name="sort"
-															class="form-control" onchange="animation()" placeholder="0" value="0" />
-													</div> 
-													 
-												</div>
-												
-											 
+
+
+
 
 											</div>
-											
-											
-											
-											
+
+
+
+
+
+
 										</div>
 									</div>
 
@@ -599,9 +862,8 @@ body {
 													class="asterisk">*</span></label>
 												<div class="col-sm-5">
 
-													<input type="text" id="music_picurl"
-														class="form-control"
-														placeholder="尺寸375*667"  value="${entity.music_picurl}" />
+													<input type="text" id="music_picurl" class="form-control"
+														placeholder="尺寸375*667" value="${entity.music_picurl}" />
 												</div>
 												<div class="col-sm-2"
 													style="height: 30px; line-height: 30px; margin-top: 3px">
@@ -617,7 +879,8 @@ body {
 												<div class="col-sm-2"
 													style="height: 30px; line-height: 30px; margin-top: 3px">
 													<div class="button  btn-warning-alt "
-														style="text-align: center;" onclick="init_img('music_picurl','insScene','')">图库</div>
+														style="text-align: center;"
+														onclick="init_img('music_picurl','insScene','')">图库</div>
 												</div>
 
 											</div>
@@ -689,8 +952,8 @@ body {
 												<div class="col-sm-5">
 
 													<input type="text" id="layer_picurl"
-														class="layer_picurl form-control"
-														placeholder="尺寸375*667" onchange="picurl_change()" />
+														class="layer_picurl form-control" placeholder="尺寸375*667"
+														onchange="picurl_change()" />
 												</div>
 												<div class="col-sm-2"
 													style="height: 30px; line-height: 30px; margin-top: 3px">
@@ -706,7 +969,8 @@ body {
 												<div class="col-sm-2"
 													style="height: 30px; line-height: 30px; margin-top: 3px">
 													<div class="button  btn-warning-alt "
-														style="text-align: center;" onclick="init_img('layer_picurl','insScene','picurl_change')">图库</div>
+														style="text-align: center;"
+														onclick="init_img('layer_picurl','insScene','picurl_change')">图库</div>
 												</div>
 
 
@@ -726,8 +990,8 @@ body {
 												<label class="col-sm-3 control-label">图层序号: <span
 													class="asterisk">*</span></label>
 												<div class="col-sm-5">
-                                                <input type="text" id="layer_sort"
-														class="form-control" placeholder="请输入" />
+													<input type="text" id="layer_sort" class="form-control"
+														placeholder="请输入" />
 												</div>
 
 											</div>
@@ -784,8 +1048,7 @@ body {
 												<div class="col-sm-5">
 
 													<input type="text" id="share_picurl"
-														value="${entity.picurl}" class="share_picurl form-control"
-														 />
+														value="${entity.picurl}" class="share_picurl form-control" />
 												</div>
 												<div class="col-sm-2"
 													style="height: 30px; line-height: 30px; margin-top: 3px">
@@ -924,7 +1187,8 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="slide_top" value="${slidestyle.margintop}" class="form-control"
+														<input type="text" id="slide_top"
+															value="${slidestyle.margintop}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -944,7 +1208,8 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="slide_width" value="${slidestyle.width}" class="form-control"
+														<input type="text" id="slide_width"
+															value="${slidestyle.width}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -954,7 +1219,8 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="slide_height" value="${slidestyle.height}" class="form-control"
+														<input type="text" id="slide_height"
+															value="${slidestyle.height}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -1014,7 +1280,7 @@ body {
 													<div class="col-sm-5">
 
 														<input type="text" id="roll_top" class="form-control"
-															placeholder="请输入" value="${rollstyle.margintop}"  />
+															placeholder="请输入" value="${rollstyle.margintop}" />
 													</div>
 
 												</div>
@@ -1023,7 +1289,8 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_left" value="${rollstyle.marginleft}"  class="form-control"
+														<input type="text" id="roll_left"
+															value="${rollstyle.marginleft}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -1033,8 +1300,9 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_color" class="form-control color"
-															placeholder="请输入" readonly="readonly" value="${rollstyle.color}"  />
+														<input type="text" id="roll_color"
+															class="form-control color" placeholder="请输入"
+															readonly="readonly" value="${rollstyle.color}" />
 													</div>
 
 												</div>
@@ -1043,8 +1311,10 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_bj_color" value="${rollstyle.backgroundcolor}" class="form-control color"
-															placeholder="请输入" readonly="readonly" />
+														<input type="text" id="roll_bj_color"
+															value="${rollstyle.backgroundcolor}"
+															class="form-control color" placeholder="请输入"
+															readonly="readonly" />
 													</div>
 
 												</div>
@@ -1053,7 +1323,8 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_width" value="${rollstyle.width}" class="form-control"
+														<input type="text" id="roll_width"
+															value="${rollstyle.width}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -1063,7 +1334,8 @@ body {
 														class="asterisk">*</span></label>
 													<div class="col-sm-5">
 
-														<input type="text" id="roll_height" value="${rollstyle.height}" class="form-control"
+														<input type="text" id="roll_height"
+															value="${rollstyle.height}" class="form-control"
 															placeholder="请输入" />
 													</div>
 
@@ -1100,7 +1372,8 @@ body {
 
 													</tr>
 												</thead>
-												<tbody id="curtains" style="height: 300px; overflow: scroll;">
+												<tbody id="curtains"
+													style="height: 300px; overflow: scroll;">
 
 												</tbody>
 											</table>
@@ -1114,10 +1387,8 @@ body {
 
 										<div class="panel-body">
 
-											<div class="panel panel-default">
-												 
-											</div>
-											<!-- panel --> 
+											<div class="panel panel-default"></div>
+											<!-- panel -->
 										</div>
 									</div>
 								</div>
@@ -1153,10 +1424,10 @@ body {
 
 		</div>
 	</section>
-	
-	
-	
-	
+
+
+
+
 
 	<%--弹出层新--%>
 	<div class="fullscreen bg-hei-8 display-none" id="inszc_roll"
@@ -1309,8 +1580,8 @@ body {
 
 		</div>
 	</div>
-	
-		<%--弹出层新--%>
+
+	<%--弹出层新--%>
 	<div class="fullscreen bg-hei-8 display-none" id="inszc_curtain"
 		style="height: 100%;">
 		<div style="padding-top: 2%">
@@ -1393,12 +1664,12 @@ body {
 
 		</div>
 	</div>
-	<script type="text/javascript"> 
+	<script type="text/javascript">
 		function elveChange() {
 			console.log("#elve_" + elveid);
 			$("#elve_" + elveid).attr("url_value", $('#elve_url').val());
 			$("#elve_" + elveid).attr("title", $('#elve_title').val());
-			$("#elve_" + elveid).attr("sort", $('#elve_sort').val()); 
+			$("#elve_" + elveid).attr("sort", $('#elve_sort').val());
 		}
 		function updateStyle(v) {
 			var left = $(v).css("left");
@@ -1496,7 +1767,7 @@ body {
 		$(".color").colorpicker(
 				{
 					fillcolor : true,
-					success : function(v) { 
+					success : function(v) {
 						if ($(v).attr("id") == "elve_bgcolor") {
 							$("#elve_" + elveid).css("background-color",
 									$(v).val());
@@ -1506,8 +1777,8 @@ body {
 									$(v).val());
 						}
 						if ($(v).attr("id") == "elve_title_color") {
-							$("#elve_" + elveid).attr("title_color",
-									$(v).val());
+							$("#elve_" + elveid)
+									.attr("title_color", $(v).val());
 						}
 						if ($(v).attr("id") == "elve_bk_color") {
 							border_create("#elve_" + elveid, $("#elve_bk_cc")
@@ -1515,8 +1786,8 @@ body {
 									"#elve_bk_color").val());
 						}
 					},
-					reset:function(v){
-						console.log($(v).attr("id")); 
+					reset : function(v) {
+						console.log($(v).attr("id"));
 						if ($(v).attr("id") == "elve_bgcolor") {
 							$(v).val('');
 							$("#elve_" + elveid).css("background-color",
@@ -1532,18 +1803,20 @@ body {
 		function picurl_change() {
 			console.log("#elve_" + elveid);
 			$("#layer_" + layerid).css("background-image",
-					'url(${filehttp}' + $("#layer_picurl").val()+ ")"); 
+					'url(${filehttp}' + $("#layer_picurl").val() + ")");
 			$("#layer_" + layerid).attr("backgroundimage",
-					$("#layer_picurl").val());  
+					$("#layer_picurl").val());
 		}
-		function elve_picurl_change() {  
+		function elve_picurl_change() {
 			$("#elve_" + elveid).css("background-image",
-					"url(${filehttp}" + $("#elve_picurl").val() + ")"); 
-			var  width=80;
-			var  heigth=(80*$('#elve_picurl').attr('imgH'))/$('#elve_picurl').attr('imgW');
-			$("#elve_" + elveid).css("width",width);
-			$("#elve_" + elveid).css("background-color",$("#elve_bgcolor").val());
-			$("#elve_" + elveid).css("height",heigth); 
+					"url(${filehttp}" + $("#elve_picurl").val() + ")");
+			var width = 80;
+			var heigth = (80 * $('#elve_picurl').attr('imgH'))
+					/ $('#elve_picurl').attr('imgW');
+			$("#elve_" + elveid).css("width", width);
+			$("#elve_" + elveid).css("background-color",
+					$("#elve_bgcolor").val());
+			$("#elve_" + elveid).css("height", heigth);
 			$("#elve_" + elveid).attr("backgroundimage",
 					$("#elve_picurl").val());
 			$("#elve_" + elveid).removeClass('childdiv');
@@ -1763,7 +2036,7 @@ body {
 					function(json) {
 						if (json.state == 0) {
 							alert("创建精灵成功");
-							get_elve(); 
+							get_elve();
 							init_layer(layerid);
 						} else {
 							alert("创建失败");
@@ -1792,15 +2065,15 @@ body {
 													+ list[v]._id
 													+ '">'
 													+ list[v].title
-													+ '</td>' 
+													+ '</td>'
 													+ '<td onclick="layer_click(this)" layerid="'
-													+ list[v]._id 
+													+ list[v]._id
 													+ '"><img src="${filehttp}/'
 													+ list[v].picurl+'"'
 													+ 'height="35px"  /></td>'
 													+ '<td class="table-action"><div class="btn-group1 position-r"><a data-toggle="dropdown" class="dropdown-toggle">'
 													+ '<i class="fa fa-cog"></i></a>'
-													+ '<ul role="menu" class="dropdown-menu pull-right">' 
+													+ '<ul role="menu" class="dropdown-menu pull-right">'
 													+ ' <li><a href="javascript:delScene('
 													+ list[v]._id
 													+ ');"><i class="fa fa-trash-o "></i>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></li>'
@@ -1836,20 +2109,20 @@ body {
 													+ list[v].sort
 													+ '</td>'
 													+ '<td  class="elves_context" onclick="elve_click(this)" elveid="'
-													+ list[v]._id 
+													+ list[v]._id
 													+ '" id="'
-													+ list[v]._id 
+													+ list[v]._id
 													+ '">'
 													+ list[v].title
 													+ '</td>'
 													+ '<td onclick="elve_click(this)" elveid="'
-													+ list[v]._id 
+													+ list[v]._id
 													+ '"><img src="${filehttp}/'
 													+ list[v].picurl+'"'
 													+ 'height="35px"  /></td>'
 													+ '<td class="table-action"><div class="btn-group1 position-r"><a data-toggle="dropdown" class="dropdown-toggle">'
 													+ '<i class="fa fa-cog"></i></a>'
-													+ '<ul role="menu" class="dropdown-menu pull-right">' 
+													+ '<ul role="menu" class="dropdown-menu pull-right">'
 													+ '<li><a href="javascript:delSpirit('
 													+ list[v]._id
 													+ ');"><i class="fa fa-trash-o "></i>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></li>'
@@ -1862,14 +2135,14 @@ body {
 									initContext2();
 									$("[elveid='" + elveid + "']").find("td")
 											.addClass("bg_color");
-									
+
 								} else {
 									$('#elves').html('');
 								}
 
 							}, "json")
 		}
-		var tdrag=false;
+		var tdrag = false;
 		//初始化当前层数据
 		function init_layer(id) {
 			layerid = id;
@@ -1893,30 +2166,29 @@ body {
 									}
 									if (obj.picurl != null) {
 										div.css('background-image',
-												'url(${filehttp}/'+obj.picurl+")");
-										div.attr(
-												'backgroundimage',
-												obj.picurl);
-									} 
+												'url(${filehttp}/' + obj.picurl
+														+ ")");
+										div.attr('backgroundimage', obj.picurl);
+									}
 									//初始化精灵属性
 									var list = json.list;
 									if (list != null && list.length > 0) {
 										for (var i = 0; i < list.length; i++) {
-											var elve = $('<div style="position: absolute;" onclick="elve_click(this)" elveid="'+list[i]._id+'"></div>');
+											var elve = $('<div style="position: absolute;" onclick="elve_click(this)" elveid="'
+													+ list[i]._id + '"></div>');
 											elve.attr('id', 'elve_'
 													+ list[i]._id);
 											var style = list[i].style;
 											elve.addClass('elves');
 											elve.attr('title', list[i].title);
-											elve.attr('title_color', list[i].title_color);
+											elve.attr('title_color',
+													list[i].title_color);
 											elve.attr('url_value', list[i].url);
 											elve.attr('sort', list[i].sort);
 
-
 											if (style == null) {
 												elve.addClass('childdiv');
-												elve.attr('z_index',
-														1);
+												elve.attr('z_index', 1);
 											} else {
 												if (style.height != null) {
 													elve.css('height',
@@ -2006,14 +2278,18 @@ body {
 															animo.iterate);
 													elve.attr('anima_keep',
 															animo.keep);
-													elve.attr('anima_timeDelay',
-															animo.timeDelay);  
+													elve.attr(
+															'anima_timeDelay',
+															animo.timeDelay);
 												}
 
 											}
-											
-											
-											var elve_title = $('<div  style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'+list[i].title_color+'">'+list[i].title+'</div>');
+
+											var elve_title = $('<div  style="position: absolute;bottom: -20px;font-size: 16px;width: 100%;text-align: center;color:'
+													+ list[i].title_color
+													+ '">'
+													+ list[i].title
+													+ '</div>');
 											elve.append(elve_title);
 											elve.bind("click", function() {
 												elves_click(this);
@@ -2039,52 +2315,74 @@ body {
 													$(ui.helper).css("z-index",$(ui.helper).attr('sort'))
 												}
 											});*/
-											
+
 											elve.resizable({
 												//aspectRatio: getproportion(div.css("width"),div.css("height"))
 												resize : function(event, ui) {
 													updateStyle(ui.element);
-													
+
 												},
 												start : function(event, ui) {
-													
-													if(!tdrag){
-														$(".disable").trigger("click");
-														console.log("开始"+tdrag);
-														tdrag=true;
-													} 
+
+													if (!tdrag) {
+														$(".disable").trigger(
+																"click");
+														console.log("开始"
+																+ tdrag);
+														tdrag = true;
+													}
 													init_elve($(ui.element)
 															.attr("id")
 															.replace("elve_",
 																	""));
-													
+
 													//$(ui.element).disable_open();
-												}
-												,stop : function(event, ui) { 
-													
-													if(tdrag){
-														$(".disable").trigger("click");
-														console.log("结束"+tdrag);
-														tdrag=false;
+												},
+												stop : function(event, ui) {
+
+													if (tdrag) {
+														$(".disable").trigger(
+																"click");
+														console.log("结束"
+																+ tdrag);
+														tdrag = false;
 													}
-													
+
 													//$(ui.element).disable_open();
 												}
 											});
-											$(elve).Tdrag({ 
-												cbStart:function(e,v){  
-													init_elve($(e).attr("id").replace("elve_",""));
-													show_evle();
-												},//移动前的回调函数
-											    cbMove:function(e,v){
-											    	updateStyle(e);
-											    },//移动中的回调函数
-											    cbEnd:function(e,v){
-											    	$(e).css("z-index",$(e).attr('z_index'))
-											    }//移动结束时候的回调函数
-											    ,disableInput:".disable"
-											    
-											});
+											$(elve)
+													.Tdrag(
+															{
+																cbStart : function(
+																		e, v) {
+																	init_elve($(
+																			e)
+																			.attr(
+																					"id")
+																			.replace(
+																					"elve_",
+																					""));
+																	show_evle();
+																},//移动前的回调函数
+																cbMove : function(
+																		e, v) {
+																	updateStyle(e);
+																},//移动中的回调函数
+																cbEnd : function(
+																		e, v) {
+																	$(e)
+																			.css(
+																					"z-index",
+																					$(
+																							e)
+																							.attr(
+																									'z_index'))
+																}//移动结束时候的回调函数
+																,
+																disableInput : ".disable"
+
+															});
 											div.append(elve);
 
 										}
@@ -2184,113 +2482,169 @@ body {
 			var submitData = {
 				id : id
 			};
-			$.post('${ctx}/suc/mobilescene!get_elve_ById.action', submitData,
-					function(json) {
-						if (json.state == 0) {
-							var obj = json.data;
-							var style = obj.style;
-							$("#elve_title").val(obj.title);
-							$("#elve_picurl").val(obj.picurl);
-							$("#elve_url").val(obj.url);
-							$("#elve_sort").val(obj.sort);
-							$("#elve_title_color").val(obj.title_color);
-							$("#elve_yl").css('background-image','url(${filehttp}/'+obj.picurl+')');
-							if(style!=null){  
-								if (style.backgroundcolor != null) {
-									$("#elve_bgcolor").val(style.backgroundcolor);
-									$("#elve_yl").css('background-color',style.backgroundcolor);
-								}else{
-									$("#elve_yl").css('background-color','red');
-								}
-								if(style.width != null){
-									$("#elve_wz_width").val(style.width);
-								}
-								if(style.height != null){
-									$("#elve_wz_height").val(style.height);
-								}
-								if(style.marginleft != null){
-									$("#elve_wz_left").val(style.marginleft.replace("px",""));
-									jQuery('#slider-wz-left').slider({
-										range : "min",
-										max : 300,
-										value :$("#elve_wz_left").val(),
-										slide : function(event, ui) {
-											$("#elve_wz_left").val(ui.value);
-											$('#elve_'+elveid).css('left',ui.value);
-
+			$
+					.post(
+							'${ctx}/suc/mobilescene!get_elve_ById.action',
+							submitData,
+							function(json) {
+								if (json.state == 0) {
+									var obj = json.data;
+									var style = obj.style;
+									$("#elve_title").val(obj.title);
+									$("#elve_picurl").val(obj.picurl);
+									$("#elve_url").val(obj.url);
+									$("#elve_sort").val(obj.sort);
+									$("#elve_title_color").val(obj.title_color);
+									$("#elve_yl").css(
+											'background-image',
+											'url(${filehttp}/' + obj.picurl
+													+ ')');
+									if (style != null) {
+										if (style.backgroundcolor != null) {
+											$("#elve_bgcolor").val(
+													style.backgroundcolor);
+											$("#elve_yl").css(
+													'background-color',
+													style.backgroundcolor);
+										} else {
+											$("#elve_yl").css(
+													'background-color', 'red');
 										}
-									});
-								}
-								if(style.margintop != null){
-									$("#elve_wz_top").val(style.margintop.replace("px",""));
-									jQuery('#slider-wz-top').slider({
-										range : "min",
-										max : 800,
-										value : $("#elve_wz_top").val(),
-										slide : function(event, ui) {
-											$("#elve_wz_top").val(ui.value);
-											$('#elve_'+elveid).css('top',ui.value);
-
+										if (style.width != null) {
+											$("#elve_wz_width")
+													.val(style.width);
 										}
-									});
-								}
-								if(style.rotate!= null){
-									$("#elve_wz_xz").val(style.rotate);
-									jQuery('#slider-wz-xz').slider({
-										range : "min",
-										max : 360,
-										value : style.rotate,
-										slide : function(event, ui) {
-											$("#elve_wz_xz").val(ui.value);
-											rotate("#elve_" + elveid, ui.value);
-
+										if (style.height != null) {
+											$("#elve_wz_height").val(
+													style.height);
 										}
-									});
-								}
-								
-								 
-							}
-							var anima=obj.anima; 
-							if(anima!=null){
-								console.log(anima);
-								if(anima.value!=null){
-									$('#anima_value').val(anima.value);
-								}else{
-									$('#anima_value').val('');
-								} 
-								if(anima.duration!=null){
-									$('#anima_duration').val(anima.duration);
-								}else{
-									$('#anima_duration').val(0);
-								} 
-								if(anima.iterate!=null){ 
-									if(anima.iterate=='infinite'){
-										$('#anima_infinite').prop("checked",true);
-										$('#anima_iterate').val(0);
-									}else{
-										$('#anima_iterate').val(anima.iterate);
-										$('#anima_infinite').prop("checked",false);
+										if (style.marginleft != null) {
+											$("#elve_wz_left").val(
+													style.marginleft.replace(
+															"px", ""));
+											jQuery('#slider-wz-left')
+													.slider(
+															{
+																range : "min",
+																max : 300,
+																value : $(
+																		"#elve_wz_left")
+																		.val(),
+																slide : function(
+																		event,
+																		ui) {
+																	$(
+																			"#elve_wz_left")
+																			.val(
+																					ui.value);
+																	$(
+																			'#elve_'
+																					+ elveid)
+																			.css(
+																					'left',
+																					ui.value);
+
+																}
+															});
+										}
+										if (style.margintop != null) {
+											$("#elve_wz_top").val(
+													style.margintop.replace(
+															"px", ""));
+											jQuery('#slider-wz-top')
+													.slider(
+															{
+																range : "min",
+																max : 800,
+																value : $(
+																		"#elve_wz_top")
+																		.val(),
+																slide : function(
+																		event,
+																		ui) {
+																	$(
+																			"#elve_wz_top")
+																			.val(
+																					ui.value);
+																	$(
+																			'#elve_'
+																					+ elveid)
+																			.css(
+																					'top',
+																					ui.value);
+
+																}
+															});
+										}
+										if (style.rotate != null) {
+											$("#elve_wz_xz").val(style.rotate);
+											jQuery('#slider-wz-xz')
+													.slider(
+															{
+																range : "min",
+																max : 360,
+																value : style.rotate,
+																slide : function(
+																		event,
+																		ui) {
+																	$(
+																			"#elve_wz_xz")
+																			.val(
+																					ui.value);
+																	rotate(
+																			"#elve_"
+																					+ elveid,
+																			ui.value);
+
+																}
+															});
+										}
+
 									}
-									
-								}
-								if(anima.keep!=null){
-									$('#anima_keep').val(anima.keep);
-								}
-								if(anima.type!=null){
-									$('#anima_type').val(anima.type);
-								}
-								if(anima.timeDelay!=null){
-									$('#anima_timeDelay').val(anima.timeDelay);
-								}
-								
-							}
-							
-							
+									var anima = obj.anima;
+									if (anima != null) {
+										console.log(anima);
+										if (anima.value != null) {
+											$('#anima_value').val(anima.value);
+										} else {
+											$('#anima_value').val('');
+										}
+										if (anima.duration != null) {
+											$('#anima_duration').val(
+													anima.duration);
+										} else {
+											$('#anima_duration').val(0);
+										}
+										if (anima.iterate != null) {
+											if (anima.iterate == 'infinite') {
+												$('#anima_infinite').prop(
+														"checked", true);
+												$('#anima_iterate').val(0);
+											} else {
+												$('#anima_iterate').val(
+														anima.iterate);
+												$('#anima_infinite').prop(
+														"checked", false);
+											}
 
-						} else {
+										}
+										if (anima.keep != null) {
+											$('#anima_keep').val(anima.keep);
+										}
+										if (anima.type != null) {
+											$('#anima_type').val(anima.type);
+										}
+										if (anima.timeDelay != null) {
+											$('#anima_timeDelay').val(
+													anima.timeDelay);
+										}
 
-						}
-					}, "json")
+									}
+
+								} else {
+
+								}
+							}, "json")
 		}
 		//保存层以及层下级精灵的数据
 		function saveLayer() {
@@ -2335,8 +2689,8 @@ body {
 					elvel.anima_value = $(this).attr("anima_value");
 					elvel.anima_duration = $(this).attr("anima_duration");
 					elvel.anima_iterate = $(this).attr("anima_iterate");
-					elvel.anima_keep = $(this).attr("anima_keep"); 
-					elvel.anima_type = $(this).attr("anima_type"); 
+					elvel.anima_keep = $(this).attr("anima_keep");
+					elvel.anima_type = $(this).attr("anima_type");
 					elvel.anima_timeDelay = $(this).attr("anima_timeDelay");
 
 					elvels.push(elvel);
@@ -2398,9 +2752,9 @@ body {
 				roll.width = $('#roll_width').val();
 				roll.height = $('#roll_height').val();
 				roll.left = $('#roll_left').val();
-				roll.top = $('#roll_top').val(); 
-				roll.bjcolor = $('#roll_bj_color').val(); 
-				roll.color = $('#roll_color').val(); 
+				roll.top = $('#roll_top').val();
+				roll.bjcolor = $('#roll_bj_color').val();
+				roll.color = $('#roll_color').val();
 				layer.roll = roll;
 
 				data.layer = JSON.stringify(layer);
@@ -2409,7 +2763,7 @@ body {
 						function(json) {
 							if (json.state == 0) {
 
-							} else { 
+							} else {
 							}
 							//window.location.reload();
 						}, "json")
@@ -2466,7 +2820,7 @@ body {
 				element.translateX = obj.translateX;
 				obj.id = "#elve_" + elveid;
 				element.translateY = obj.translateY;
-				element.translateZ = obj.translateZ; 
+				element.translateZ = obj.translateZ;
 				element.scaleX = obj.scaleX;
 				element.scaleY = obj.scaleY;
 				element.scaleZ = obj.scaleZ;
@@ -2485,9 +2839,9 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateZ = element.rotateZ
-								+ parseFloat($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val() * 0.1);
 					} else {
-						element.rotateZ = element.rotateZ +0.1;
+						element.rotateZ = element.rotateZ + 0.1;
 					}
 				});
 
@@ -2497,7 +2851,7 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateX = element.rotateX
-								+ parseFloat($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val() * 0.1);
 					} else {
 						element.rotateX = element.rotateX + 0.1;
 					}
@@ -2509,9 +2863,9 @@ body {
 				tick(function() {
 					if ($('#anima_duration').val() > 0) {
 						element.rotateY = element.rotateY
-								+ parseFloat($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val() * 0.1);
 					} else {
-						element.rotateY = element.rotateY +0.1;
+						element.rotateY = element.rotateY + 0.1;
 					}
 				});
 
@@ -2524,9 +2878,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateX < qs) {
 						element.translateX = element.translateX
-								+ parseFloat($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val() * 0.1);
 					} else if (element.translateX < qs) {
-						element.translateX = element.translateX +0.1;
+						element.translateX = element.translateX + 0.1;
 					}
 
 				});
@@ -2539,9 +2893,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateX > qs) {
 						element.translateX = element.translateX
-								- parseFloat($('#anima_duration').val()*0.1);
+								- parseFloat($('#anima_duration').val() * 0.1);
 					} else if (element.translateX > qs) {
-						element.translateX = element.translateX -0.1;
+						element.translateX = element.translateX - 0.1;
 					}
 
 				});
@@ -2554,9 +2908,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateY < qs) {
 						element.translateY = element.translateY
-								+ parseFloat($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val() * 0.1);
 					} else if (element.translateY < qs) {
-						element.translateY = element.translateY +0.1;
+						element.translateY = element.translateY + 0.1;
 					}
 
 				});
@@ -2569,7 +2923,7 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateY > qs) {
 						element.translateY = element.translateY
-								- parseFloat($('#anima_duration').val()*0.1);
+								- parseFloat($('#anima_duration').val() * 0.1);
 					} else if (element.translateY > qs) {
 						element.translateY = element.translateY - 0.1;
 					}
@@ -2584,9 +2938,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateZ < qs) {
 						element.translateZ = element.translateZ
-								+ parseFloat($('#anima_duration').val()*0.1);
+								+ parseFloat($('#anima_duration').val() * 0.1);
 					} else if (element.translateZ < qs) {
-						element.translateZ = element.translateZ +0.1;
+						element.translateZ = element.translateZ + 0.1;
 					}
 
 				});
@@ -2599,9 +2953,9 @@ body {
 					if ($('#anima_duration').val() > 0
 							&& element.translateZ > qs) {
 						element.translateZ = element.translateZ
-								- parseFloat($('#anima_duration').val()*0.1);
+								- parseFloat($('#anima_duration').val() * 0.1);
 					} else if (element.translateZ > qs) {
-						element.translateZ = element.translateZ -0.1;
+						element.translateZ = element.translateZ - 0.1;
 					}
 
 				});
@@ -2677,34 +3031,35 @@ body {
 
 		}
 		//css动画
-		function animation(){
+		function animation() {
 			console.log($("#elve_" + elveid).css("animation"));
-			$("#elve_" + elveid).css("animation",''); 
-			console.log($("#elve_" + elveid).css("animation")); 
+			$("#elve_" + elveid).css("animation", '');
+			console.log($("#elve_" + elveid).css("animation"));
 			//绑定动画到当前精灵上
-			var anima='';
-			anima+=$('#anima_value').val()+' ';
-			anima+=$('#anima_duration').val()+'s ';
-			anima+='ease '+$('#anima_timeDelay').val()+'s ';
-			if($('#anima_infinite').is(':checked')){
-				anima+="infinite normal both running";
-				$("#elve_" + elveid).attr("anima_iterate","infinite");
-			}else{
-				anima+=$('#anima_iterate').val()+" normal both running";
-				$("#elve_" + elveid).attr("anima_iterate",$('#anima_iterate').val());
+			var anima = '';
+			anima += $('#anima_value').val() + ' ';
+			anima += $('#anima_duration').val() + 's ';
+			anima += 'ease ' + $('#anima_timeDelay').val() + 's ';
+			if ($('#anima_infinite').is(':checked')) {
+				anima += "infinite normal both running";
+				$("#elve_" + elveid).attr("anima_iterate", "infinite");
+			} else {
+				anima += $('#anima_iterate').val() + " normal both running";
+				$("#elve_" + elveid).attr("anima_iterate",
+						$('#anima_iterate').val());
 			}
-			
-			$("#elve_" + elveid).css("animation",anima); 
+
+			$("#elve_" + elveid).css("animation", anima);
 			//绑定动画数据到精灵上
-			$("#elve_" + elveid).attr("anima_value",$('#anima_value').val());
-			$("#elve_" + elveid).attr("anima_duration",$('#anima_duration').val());
-			$("#elve_" + elveid).attr("anima_timeDelay",$('#anima_timeDelay').val());
-			console.log($("#elve_" + elveid).attr("anima_timeDelay")) ;
-			
-			
-			  
+			$("#elve_" + elveid).attr("anima_value", $('#anima_value').val());
+			$("#elve_" + elveid).attr("anima_duration",
+					$('#anima_duration').val());
+			$("#elve_" + elveid).attr("anima_timeDelay",
+					$('#anima_timeDelay').val());
+			console.log($("#elve_" + elveid).attr("anima_timeDelay"));
+
 		}
-		$('#anima_yl').click(function(){
+		$('#anima_yl').click(function() {
 			animation();
 		});
 		//创建文本框
@@ -2791,8 +3146,7 @@ body {
 		}
 
 		//可编辑div获取坐标
-		const
-		getDivPosition = function(element) {
+		const getDivPosition = function(element) {
 			var caretOffset = 0;
 			var doc = element.ownerDocument || element.document;
 			var win = doc.defaultView || doc.parentWindow;
@@ -2917,9 +3271,7 @@ body {
 					}
 
 				});
-		
-		
-		
+
 		var remove = $("#li_1");
 		//显示幻灯片数据
 		function show_slide() {
@@ -3033,7 +3385,7 @@ body {
 		
 	</script>
 	<script type="text/javascript">
-	    //图片上传
+		//图片上传
 		fileInput("layerpicurl", "11", "layer_picurl", "1", function(e) {
 			picurl_change();
 		});
@@ -3042,7 +3394,7 @@ body {
 		});
 		fileInput("sharepicurl", "11", "share_picurl", "1", function(e) {
 
-		}); 
+		});
 
 		fileInput("slide_picurl", "11", "slide_picurl", "1", function(e) {
 
@@ -3053,7 +3405,6 @@ body {
 		fileInput("musicpicurl", "11", "music_picurl", "1", function(e) {
 
 		});
-		
 	</script>
 	<script type="text/javascript">
 		var editor = CKEDITOR.replace('roll_context');
@@ -3081,7 +3432,7 @@ body {
 			$('#curtain_sort').val(0);
 			ps_show('inszc_curtain');
 		}
-        //保存滚动字幕
+		//保存滚动字幕
 		function save_roll() {
 			var submitData = {
 				title : $('#roll_title').val(),
@@ -3174,7 +3525,7 @@ body {
 
 					}, "json")
 		}
-        //修改滚动字幕
+		//修改滚动字幕
 		function upd_roll(id) {
 			var submitData = {
 				_id : id
@@ -3200,7 +3551,7 @@ body {
 			$.post('${ctx}/suc/mobilescene!delRoll.action', submitData,
 					function(json) {
 						if (json.state == 0) {
-							
+
 						}
 						alert("删除成功！");
 						getRoll();
@@ -3216,7 +3567,7 @@ body {
 			$.post('${ctx}/suc/mobilescene!delSlide.action', submitData,
 					function(json) {
 						if (json.state == 0) {
-							
+
 						}
 						alert("删除成功！");
 						getSlide();
@@ -3232,7 +3583,7 @@ body {
 			$.post('${ctx}/suc/mobilescene!delCurtain.action', submitData,
 					function(json) {
 						if (json.state == 0) {
-							
+
 						}
 						alert("删除成功！");
 						getCurtain();
@@ -3475,7 +3826,7 @@ body {
 
 				}
 			});
-			$(".iphone-screen").append(slide); 
+			$(".iphone-screen").append(slide);
 
 			//组装滚动字幕
 			var roll = $('<div class="div_roll">拖动设置滚动字幕位置</div>');
@@ -3498,7 +3849,7 @@ body {
 
 				}
 			});
-			$(".iphone-screen").append(roll); 
+			$(".iphone-screen").append(roll);
 
 		}
 		//保存幻灯片，滚动样式
@@ -3531,270 +3882,561 @@ body {
 
 		}
 		//预览
-		function preview() { 
+		function preview() {
 			saveLayer();
 			qrcode('http://www.wbaishui.com/Acc_Manage/suc/mobilescene!index.action?custid=${entity.custid}&msid=${msid}');
 		}
 		//保存
-		function saveData(){
+		function saveData() {
 			save_slide_roll();
 			saveLayer();
-			 jQuery.gritter.add({
-					title:'操作提示',
-					text: '保存数据成功',
-			      class_name: 'growl-success',
-			      image: '${ctx}/css_js/images/screen.png',
-					sticky: false,
-					time: ''
-				 });
+			jQuery.gritter.add({
+				title : '操作提示',
+				text : '保存数据成功',
+				class_name : 'growl-success',
+				image : '${ctx}/css_js/images/screen.png',
+				sticky : false,
+				time : ''
+			});
 
 		}
 		//保存刷新
-		function saveDataFresh(){
+		function saveDataFresh() {
 			save_slide_roll();
-			saveLayer(); 
-		    jQuery.gritter.add({
-					title:'操作提示',
-					text: '保存数据成功',
-			      class_name: 'growl-success',
-			      image: '${ctx}/css_js/images/screen.png',
-					sticky: false,
-					time: ''
-				 });
-		    window.location.reload();
-			
+			saveLayer();
+			jQuery.gritter.add({
+				title : '操作提示',
+				text : '保存数据成功',
+				class_name : 'growl-success',
+				image : '${ctx}/css_js/images/screen.png',
+				sticky : false,
+				time : ''
+			});
+			window.location.reload();
+
 		}
 		//删除层
-		function  delScene(id){
-			var submitData={
-					id:id,
-					msid:'${msid}'
+		function delScene(id) {
+			var submitData = {
+				id : id,
+				msid : '${msid}'
 			}
 			$.post('${ctx}/suc/mobilescene!delScene.action', submitData,
 					function(json) {
 						if (json.state == 0) {
-							
+
 						}
 						get_layer();
 					}, "json")
 		}
 		//删除
-		function  delSpirit(id){
-			var submitData={
-					id:id,
-					scid:layerid,
-					custid:'${entity.custid}'
+		function delSpirit(id) {
+			var submitData = {
+				id : id,
+				scid : layerid,
+				custid : '${entity.custid}'
 			}
 			$.post('${ctx}/suc/mobilescene!deleteSpirit.action', submitData,
 					function(json) {
 						if (json.state == 0) {
-							
+
 						}
 						get_elve();
 						init_layer(layerid);
 					}, "json")
-		} 
-		//加载右键菜单
-		function  initContext(){
-			context.init({preventDoubleContext: false});
-			context.attach('.elves', [{
-	            header: ''
-	        },
-	        {
-	            text: '上移',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url = context.target.id; 
-	                if(parseInt($('#'+url).css('z-index'))<=1000){
-	                	$('#'+url).css('z-index',parseInt($('#'+url).css('z-index'))+1);
-	                	$('#'+url).attr('z_index',$('#'+url).css('z-index'));
-	                }else{
-	                	 //当前精灵为最顶层，其他精灵全部下移;
-	                	  $('.elves').each(function(e){
-	                		  if(parseInt($(this).css('z-index'))>=2){
-	                			  $(this).css('z-index',parseInt($(this).css('z-index'))-1);
-	                			  $(this).attr('z_index',$(this).css('z-index'));
-	                		  } 
-	                	  });
-	                	  $('#'+url).css('z-index',1000);
-	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	                	  
-	                }
-	                
-	            },
+		}
+		//获取全部动画
+		function getAnimas(){
+			var submitData = {
+					id : id,
+					scid : layerid,
+					custid : '${entity.custid}'
+				}
+				$.post('${ctx}/suc/mobilescene!deleteSpirit.action', submitData,
+						function(json) {
+							if (json.state == 0) {
 
-	        },{
-	            text: '下移',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url = context.target.id;  
-	                var index=$('#'+url).css('z-index');
-	                if(parseInt(index)>=2){
-	                	 $('#'+url).css('z-index',parseInt(index)-1);
-	                	 $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	                }else{
-	                	  //当前精灵为最底层，其他精灵全部上移;
-	                	  $('.elves').each(function(e){
-	                		  if(parseInt($(this).css('z-index'))<=1000){
-	                			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
-	                			  $(this).attr('z_index',$(this).css('z-index'));
-	                		  }
-	                		 
-	                	  });
-	                	  $('#'+url).css('z-index',1);
-	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	                	  
-	                }
-	               
-	            },
-	            
-	        } ,{
-	            text: '置顶',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url = context.target.id;  
-	              //当前精灵为最顶层，其他精灵全部下移;
-              	  $('.elves').each(function(e){
-              		  if(parseInt($(this).css('z-index'))>=2){
-              			  $(this).css('z-index',parseInt($(this).css('z-index'))-1); 
-              			  $(this).attr('z_index',$(this).css('z-index'));
-              		  } 
-              	  });
-              	  $('#'+url).css('z-index',1000);
-              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	            },
-	            
-	        } ,{
-	            text: '置底',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url = context.target.id; 
-	                //当前精灵为最底层，其他精灵全部上移;
-              	  $('.elves').each(function(e){
-              		  if(parseInt($(this).css('z-index'))<=1000){
-              			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
-              			  $(this).attr('z_index',$(this).css('z-index'));
-              		  }
-              		 
-              	  });
-              	  $('#'+url).css('z-index',1);
-              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	               
-	            },
-	            
-	        } ]);
-		} 
-		
+							}
+							get_elve();
+							init_layer(layerid);
+						}, "json")
+		}
+		//删除动画
+		function delAnimas(){
+			var submitData = {
+					id : id,
+					scid : layerid,
+					custid : '${entity.custid}'
+				}
+				$.post('${ctx}/suc/mobilescene!deleteSpirit.action', submitData,
+						function(json) {
+							if (json.state == 0) {
+
+							}
+							get_elve();
+							init_layer(layerid);
+						}, "json")
+		}
+		//保存动画
+		function addAnimas(){
+			
+		}
+		//修改动画
+		function updAnimas(){
+			var submitData = {
+					id : id,
+					scid : layerid,
+					custid : '${entity.custid}'
+				}
+				$.post('${ctx}/suc/mobilescene!deleteSpirit.action', submitData,
+						function(json) {
+							if (json.state == 0) {
+
+							}
+							get_elve();
+							init_layer(layerid);
+						}, "json")
+		}
+		//创建动画
+		function createAnimas(){
+			var submitData = {
+					id : id,
+					scid : layerid,
+					custid : '${entity.custid}'
+				}
+				$.post('${ctx}/suc/mobilescene!deleteSpirit.action', submitData,
+						function(json) {
+							if (json.state == 0) {
+
+							}
+							get_elve();
+							init_layer(layerid);
+						}, "json")
+		}
 		
 		//加载右键菜单
-		function  initContext2(){
-			context.init({preventDoubleContext: false});
-			context.attach('.elves_context', [{
-	            header: ''
-	        },
-	        {
-	            text: '上移',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url ="elve_"+context.target.id; 
-	                if(parseInt($('#'+url).css('z-index'))<=1000){
-	                	$('#'+url).css('z-index',parseInt($('#'+url).css('z-index'))+1);
-	                	$('#'+url).attr('z_index',$('#'+url).css('z-index'));
-	                }else{
-	                	 //当前精灵为最顶层，其他精灵全部下移;
-	                	  $('.elves').each(function(e){
-	                		  if(parseInt($(this).css('z-index'))>=2){
-	                			  $(this).css('z-index',parseInt($(this).css('z-index'))-1);
-	                			  $(this).attr('z_index',$(this).css('z-index'));
-	                		  } 
-	                	  });
-	                	  $('#'+url).css('z-index',1000);
-	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	                	  
-	                }
-	                
-	            },
+		function initContext() {
+			context.init({
+				preventDoubleContext : false
+			});
+			context
+					.attach(
+							'.elves',
+							[
+									{
+										header : ''
+									},
+									{
+										text : '上移',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = context.target.id;
+											if (parseInt($('#' + url).css(
+													'z-index')) <= 1000) {
+												$('#' + url)
+														.css(
+																'z-index',
+																parseInt($(
+																		'#'
+																				+ url)
+																		.css(
+																				'z-index')) + 1);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'));
+											} else {
+												//当前精灵为最顶层，其他精灵全部下移;
+												$('.elves')
+														.each(
+																function(e) {
+																	if (parseInt($(
+																			this)
+																			.css(
+																					'z-index')) >= 2) {
+																		$(this)
+																				.css(
+																						'z-index',
+																						parseInt($(
+																								this)
+																								.css(
+																										'z-index')) - 1);
+																		$(this)
+																				.attr(
+																						'z_index',
+																						$(
+																								this)
+																								.css(
+																										'z-index'));
+																	}
+																});
+												$('#' + url).css('z-index',
+														1000);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'))
 
-	        },{
-	            text: '下移',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url ="elve_"+context.target.id; 
-	                var index=$('#'+url).css('z-index');
-	                if(parseInt(index)>=2){
-	                	 $('#'+url).css('z-index',parseInt(index)-1);
-	                	 $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	                }else{
-	                	  //当前精灵为最底层，其他精灵全部上移;
-	                	  $('.elves').each(function(e){
-	                		  if(parseInt($(this).css('z-index'))<=1000){
-	                			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
-	                			  $(this).attr('z_index',$(this).css('z-index'));
-	                		  }
-	                		 
-	                	  });
-	                	  $('#'+url).css('z-index',1);
-	                	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	                	  
-	                }
-	               
-	            },
-	            
-	        } ,{
-	            text: '置顶',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url ="elve_"+context.target.id;  
-	              //当前精灵为最顶层，其他精灵全部下移;
-              	  $('.elves').each(function(e){
-              		  if(parseInt($(this).css('z-index'))>=2){
-              			  $(this).css('z-index',parseInt($(this).css('z-index'))-1); 
-              			  $(this).attr('z_index',$(this).css('z-index'));
-              		  } 
-              	  });
-              	  $('#'+url).css('z-index',1000);
-              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	            },
-	            
-	        } ,{
-	            text: '置底',
-	            href: '#',
-	            action: function(e) {
-	                e.preventDefault();
-	                var url ="elve_"+context.target.id; 
-	                //当前精灵为最底层，其他精灵全部上移;
-              	  $('.elves').each(function(e){
-              		  if(parseInt($(this).css('z-index'))<=1000){
-              			  $(this).css('z-index',parseInt($(this).css('z-index'))+1);
-              			  $(this).attr('z_index',$(this).css('z-index'));
-              		  }
-              		 
-              	  });
-              	  $('#'+url).css('z-index',1);
-              	  $('#'+url).attr('z_index',$('#'+url).css('z-index'))
-	               
-	            },
-	            
-	        } ]);
-		} 
+											}
+
+										},
+
+									},
+									{
+										text : '下移',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = context.target.id;
+											var index = $('#' + url).css(
+													'z-index');
+											if (parseInt(index) >= 2) {
+												$('#' + url).css('z-index',
+														parseInt(index) - 1);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'))
+											} else {
+												//当前精灵为最底层，其他精灵全部上移;
+												$('.elves')
+														.each(
+																function(e) {
+																	if (parseInt($(
+																			this)
+																			.css(
+																					'z-index')) <= 1000) {
+																		$(this)
+																				.css(
+																						'z-index',
+																						parseInt($(
+																								this)
+																								.css(
+																										'z-index')) + 1);
+																		$(this)
+																				.attr(
+																						'z_index',
+																						$(
+																								this)
+																								.css(
+																										'z-index'));
+																	}
+
+																});
+												$('#' + url).css('z-index', 1);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'))
+
+											}
+
+										},
+
+									},
+									{
+										text : '置顶',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = context.target.id;
+											//当前精灵为最顶层，其他精灵全部下移;
+											$('.elves')
+													.each(
+															function(e) {
+																if (parseInt($(
+																		this)
+																		.css(
+																				'z-index')) >= 2) {
+																	$(this)
+																			.css(
+																					'z-index',
+																					parseInt($(
+																							this)
+																							.css(
+																									'z-index')) - 1);
+																	$(this)
+																			.attr(
+																					'z_index',
+																					$(
+																							this)
+																							.css(
+																									'z-index'));
+																}
+															});
+											$('#' + url).css('z-index', 1000);
+											$('#' + url)
+													.attr(
+															'z_index',
+															$('#' + url).css(
+																	'z-index'))
+										},
+
+									},
+									{
+										text : '置底',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = context.target.id;
+											//当前精灵为最底层，其他精灵全部上移;
+											$('.elves')
+													.each(
+															function(e) {
+																if (parseInt($(
+																		this)
+																		.css(
+																				'z-index')) <= 1000) {
+																	$(this)
+																			.css(
+																					'z-index',
+																					parseInt($(
+																							this)
+																							.css(
+																									'z-index')) + 1);
+																	$(this)
+																			.attr(
+																					'z_index',
+																					$(
+																							this)
+																							.css(
+																									'z-index'));
+																}
+
+															});
+											$('#' + url).css('z-index', 1);
+											$('#' + url)
+													.attr(
+															'z_index',
+															$('#' + url).css(
+																	'z-index'))
+
+										},
+
+									} ]);
+		}
+
+		//加载右键菜单
+		function initContext2() {
+			context.init({
+				preventDoubleContext : false
+			});
+			context
+					.attach(
+							'.elves_context',
+							[
+									{
+										header : ''
+									},
+									{
+										text : '上移',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = "elve_"
+													+ context.target.id;
+											if (parseInt($('#' + url).css(
+													'z-index')) <= 1000) {
+												$('#' + url)
+														.css(
+																'z-index',
+																parseInt($(
+																		'#'
+																				+ url)
+																		.css(
+																				'z-index')) + 1);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'));
+											} else {
+												//当前精灵为最顶层，其他精灵全部下移;
+												$('.elves')
+														.each(
+																function(e) {
+																	if (parseInt($(
+																			this)
+																			.css(
+																					'z-index')) >= 2) {
+																		$(this)
+																				.css(
+																						'z-index',
+																						parseInt($(
+																								this)
+																								.css(
+																										'z-index')) - 1);
+																		$(this)
+																				.attr(
+																						'z_index',
+																						$(
+																								this)
+																								.css(
+																										'z-index'));
+																	}
+																});
+												$('#' + url).css('z-index',
+														1000);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'))
+
+											}
+
+										},
+
+									},
+									{
+										text : '下移',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = "elve_"
+													+ context.target.id;
+											var index = $('#' + url).css(
+													'z-index');
+											if (parseInt(index) >= 2) {
+												$('#' + url).css('z-index',
+														parseInt(index) - 1);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'))
+											} else {
+												//当前精灵为最底层，其他精灵全部上移;
+												$('.elves')
+														.each(
+																function(e) {
+																	if (parseInt($(
+																			this)
+																			.css(
+																					'z-index')) <= 1000) {
+																		$(this)
+																				.css(
+																						'z-index',
+																						parseInt($(
+																								this)
+																								.css(
+																										'z-index')) + 1);
+																		$(this)
+																				.attr(
+																						'z_index',
+																						$(
+																								this)
+																								.css(
+																										'z-index'));
+																	}
+
+																});
+												$('#' + url).css('z-index', 1);
+												$('#' + url).attr(
+														'z_index',
+														$('#' + url).css(
+																'z-index'))
+
+											}
+
+										},
+
+									},
+									{
+										text : '置顶',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = "elve_"
+													+ context.target.id;
+											//当前精灵为最顶层，其他精灵全部下移;
+											$('.elves')
+													.each(
+															function(e) {
+																if (parseInt($(
+																		this)
+																		.css(
+																				'z-index')) >= 2) {
+																	$(this)
+																			.css(
+																					'z-index',
+																					parseInt($(
+																							this)
+																							.css(
+																									'z-index')) - 1);
+																	$(this)
+																			.attr(
+																					'z_index',
+																					$(
+																							this)
+																							.css(
+																									'z-index'));
+																}
+															});
+											$('#' + url).css('z-index', 1000);
+											$('#' + url)
+													.attr(
+															'z_index',
+															$('#' + url).css(
+																	'z-index'))
+										},
+
+									},
+									{
+										text : '置底',
+										href : '#',
+										action : function(e) {
+											e.preventDefault();
+											var url = "elve_"
+													+ context.target.id;
+											//当前精灵为最底层，其他精灵全部上移;
+											$('.elves')
+													.each(
+															function(e) {
+																if (parseInt($(
+																		this)
+																		.css(
+																				'z-index')) <= 1000) {
+																	$(this)
+																			.css(
+																					'z-index',
+																					parseInt($(
+																							this)
+																							.css(
+																									'z-index')) + 1);
+																	$(this)
+																			.attr(
+																					'z_index',
+																					$(
+																							this)
+																							.css(
+																									'z-index'));
+																}
+
+															});
+											$('#' + url).css('z-index', 1);
+											$('#' + url)
+													.attr(
+															'z_index',
+															$('#' + url).css(
+																	'z-index'))
+
+										},
+
+									} ]);
+		}
 		//初始化数据
-		function  initData(){
-			var  scid='${scid}';  
-			if(scid!=''){
+		function initData() {
+			var scid = '${scid}';
+			if (scid != '') {
 				init_layer(scid);
 			}
 		}
 		initData();
+		
+		
+		
 	</script>
 	<%@include file="/com/img2.jsp"%>
 	<%@include file="/com/preview1.jsp"%>
-	
+
 </body>
 </html>
