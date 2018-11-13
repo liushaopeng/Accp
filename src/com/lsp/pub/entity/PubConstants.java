@@ -34,6 +34,8 @@ public class PubConstants
   public static String SUC_IMAGE="suc_image";//图片
   public static String SUC_TEXT="suc_text";//文本
   public static String SUC_CURTAIN="suc_curtain";//幕布
+  public static String SUC_FOLDER="suc_folder";//文件夹
+  public static String SUC_MUISIC="suc_music";//音乐
   
   
    
